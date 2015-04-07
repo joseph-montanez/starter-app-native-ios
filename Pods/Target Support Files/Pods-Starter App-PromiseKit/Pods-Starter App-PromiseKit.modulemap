@@ -1,0 +1,6 @@
+framework module PromiseKit {
+  umbrella header "Pods-Starter App-PromiseKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
