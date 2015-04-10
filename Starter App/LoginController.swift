@@ -11,51 +11,107 @@ import UIKit
 class LoginController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var facebookViewContainer: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var loginButton: UIButton!
     
     var lastVisibleView: UIView?
-    var visibleMargin: CGFloat?
-    var visibleOffset: CGFloat?
+    var visibleMargin: CGFloat = 0.0
+    var visibleOffset: CGFloat = 0.0
     
+    override func loadView() {
+        super.loadView()
+        lastVisibleView = loginButton
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        visibleMargin = CGFloat(self.edgesForExtendedLayout.rawValue)
+        
+        
+        var tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard:")
+        view.addGestureRecognizer(tap)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardWillShow:",name:UIKeyboardWillShowNotification,object:nil)
         //https://github.com/damienromito/VisibleFormViewController/blob/master/VisibleFormViewController/VisibleFormViewController.m
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardWillHide:",name:UIKeyboardWillHideNotification,object:nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:"keyboardWillHide:",name:UIKeyboardWillHideNotification,object:nil)
         
     }
     
     func keyboardWillShow(notification:NSNotification) {
+        let kn = KeyboardNotification(notification)
         let dict:NSDictionary = notification.userInfo as [String:AnyObject]
         let keyboardFrameEndUserInfoKey = dict.valueForKey(UIKeyboardFrameEndUserInfoKey) as NSValue
         let keyboardBounds = keyboardFrameEndUserInfoKey.CGRectValue()
         
         
         let duration = dict.objectForKey(UIKeyboardAnimationDurationUserInfoKey) as NSNumber
-        let curve = dict.objectForKey(UIKeyboardAnimationCurveUserInfoKey) as NSNumber
+        let curve = kn.animationCurve
         
-        let frame = view.frame
+        var frame = view.frame
         let visibleHeight = frame.size.height - keyboardBounds.size.height
         
-        let lastVisiblePointY = lastVisibleView!.frame.origin.y + lastVisibleView!.frame.size.height
+        var lastVisiblePointY: CGFloat
+        if let last = lastVisibleView {
+            lastVisiblePointY = last.frame.origin.y + last.frame.size.height
+        } else {
+            lastVisiblePointY = 0.0
+        }
         
         let zeroFloat: CGFloat = 0.00
         
-        switch (visibleOffset, visibleMargin, visibleHeight, lastVisiblePointY) {
-        case (let offset, let margin, let height, let pointY):
-            if (lastVisibleView != nil && offset == zeroFloat && (pointY + margin!) > height) {
-                visibleOffset = lastVisiblePointY - height + margin!
-                //frame.origin.y -= offset;
-            }
-            
+        var navigationBarHeight: CGFloat
+        
+        if let navigation = self.navigationController {
+            navigationBarHeight = navigation.navigationBar.frame.height
+        } else {
+            navigationBarHeight = 0.0
         }
         
         
-        UIView.beginAnimations(nil, context: nil)
-        UIView.setAnimationBeginsFromCurrentState(true)
-        UIView.setAnimationDuration(duration.doubleValue)
-        //UIView.setAnimationCurve(curve.intValue)
+        if (lastVisibleView != nil && visibleOffset == zeroFloat && (lastVisiblePointY + visibleMargin) > visibleHeight) {
+            self.visibleOffset = visibleHeight - navigationBarHeight /* Navigation UI Height */ - 4 /* Default Margin */
+            frame.origin.y -= self.visibleOffset
+        }
+        
+        let options = UIViewAnimationOptions(UInt(curve << 16))
+        let durationInterval: NSTimeInterval = NSTimeInterval(duration.doubleValue)
+        let delayInterval: NSTimeInterval = NSTimeInterval(0.0)
+
+        UIView.animateWithDuration(
+            durationInterval,
+            delay: delayInterval,
+            options: options,
+            animations: { () -> Void in },
+            completion: nil
+        )
+        
+        view.frame = frame
+        
+        UIView.commitAnimations()
+    }
+    
+    func keyboardWillHide(notification:NSNotification) {
+        let kn = KeyboardNotification(notification)
+        let dict:NSDictionary = notification.userInfo as [String:AnyObject]
+        let duration = dict.objectForKey(UIKeyboardAnimationDurationUserInfoKey) as NSNumber
+        let curve = kn.animationCurve
+    
+        var frame = self.view.frame;
+        frame.origin.y += visibleOffset
+        visibleOffset = 0
+        
+        
+        let options = UIViewAnimationOptions(UInt(curve << 16))
+        let durationInterval: NSTimeInterval = NSTimeInterval(duration.doubleValue)
+        let delayInterval: NSTimeInterval = NSTimeInterval(0.0)
+        
+        UIView.animateWithDuration(
+            durationInterval,
+            delay: delayInterval,
+            options: options,
+            animations: { () -> Void in },
+            completion: nil
+        )
         
         view.frame = frame
         

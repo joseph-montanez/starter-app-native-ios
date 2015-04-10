@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F44C26581AD7BAC9003BD6B1 /* KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44C26571AD7BAC9003BD6B1 /* KeyboardNotification.swift */; };
 		F46DA01C1AD3EA9D0088E2DB /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46DA01B1AD3EA9D0088E2DB /* Api.swift */; };
 		F46DA0201AD3F0C40088E2DB /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F46DA01D1AD3F0C30088E2DB /* FBSDKCoreKit.framework */; };
 		F46DA0211AD3F0C40088E2DB /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F46DA01E1AD3F0C30088E2DB /* FBSDKLoginKit.framework */; };
@@ -36,6 +37,7 @@
 		6809F7E9110A324D6C7AA36F /* Pods-Starter App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Starter App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Starter App/Pods-Starter App.release.xcconfig"; sourceTree = "<group>"; };
 		726BA595028A1C230270D47D /* Pods-Starter App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Starter App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Starter App/Pods-Starter App.debug.xcconfig"; sourceTree = "<group>"; };
 		796AAFB88FFB9DDDBBDC7B10 /* Pods_Starter_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Starter_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F44C26571AD7BAC9003BD6B1 /* KeyboardNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardNotification.swift; sourceTree = "<group>"; };
 		F46DA01B1AD3EA9D0088E2DB /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		F46DA01D1AD3F0C30088E2DB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F46DA01E1AD3F0C30088E2DB /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				F491E1CD1AD2577F0087377E /* LaunchScreen.xib */,
 				F491E1C21AD2577E0087377E /* Supporting Files */,
 				F46DA01B1AD3EA9D0088E2DB /* Api.swift */,
+				F44C26571AD7BAC9003BD6B1 /* KeyboardNotification.swift */,
 			);
 			path = "Starter App";
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				F491E1C71AD2577F0087377E /* ViewController.swift in Sources */,
 				F47E757C1AD27DD80047C968 /* LoginController.swift in Sources */,
 				F47E757A1AD278710047C968 /* HomeScrollView.swift in Sources */,
+				F44C26581AD7BAC9003BD6B1 /* KeyboardNotification.swift in Sources */,
 				F46DA01C1AD3EA9D0088E2DB /* Api.swift in Sources */,
 				F491E1C51AD2577F0087377E /* AppDelegate.swift in Sources */,
 			);

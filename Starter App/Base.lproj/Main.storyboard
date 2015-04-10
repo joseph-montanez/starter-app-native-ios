@@ -81,6 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="132" y="317"/>
         </scene>
         <!--Login Controller-->
         <scene sceneID="tm8-8B-lBd">
@@ -221,12 +222,13 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="facebookViewContainer" destination="zTd-HB-ZO4" id="Jtt-4v-d5e"/>
+                        <outlet property="loginButton" destination="ndd-SQ-mc0" id="v49-M0-0du"/>
                         <outlet property="scrollView" destination="eBJ-vt-A1t" id="5oW-6v-845"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VhB-3w-b3v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="664" y="1015"/>
+            <point key="canvasLocation" x="562" y="1015"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kri-Fa-nVq">
