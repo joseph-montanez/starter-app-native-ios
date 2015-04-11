@@ -1,5 +1,4 @@
 PODS:
-  - Dollar (2.1.1)
   - OMGHTTPURLRQ (2.1):
     - OMGHTTPURLRQ/RQ (= 2.1)
   - OMGHTTPURLRQ/FormURLEncode (2.1)
@@ -7,26 +6,27 @@ PODS:
     - OMGHTTPURLRQ/FormURLEncode
     - OMGHTTPURLRQ/UserAgent
   - OMGHTTPURLRQ/UserAgent (2.1)
-  - PromiseKit/Swift (1.4.2):
-    - PromiseKit/Swift/Foundation (= 1.4.2)
-    - PromiseKit/Swift/UIKit (= 1.4.2)
-  - PromiseKit/Swift/Foundation (1.4.2):
+  - PromiseKit/Swift (1.5.0):
+    - PromiseKit/Swift/Foundation (= 1.5.0)
+    - PromiseKit/Swift/UIKit (= 1.5.0)
+  - PromiseKit/Swift/Foundation (1.5.0):
     - OMGHTTPURLRQ
     - PromiseKit/Swift/NSJSONFromData
     - PromiseKit/Swift/Promise
-  - PromiseKit/Swift/NSJSONFromData (1.4.2):
+  - PromiseKit/Swift/NSJSONFromData (1.5.0):
     - PromiseKit/Swift/Promise
-  - PromiseKit/Swift/Promise (1.4.2)
-  - PromiseKit/Swift/UIKit (1.4.2):
+  - PromiseKit/Swift/Promise (1.5.0)
+  - PromiseKit/Swift/UIKit (1.5.0):
     - PromiseKit/Swift/Promise
   - Realm (0.91.1):
     - Realm/Headers (= 0.91.1)
   - Realm/Headers (0.91.1)
+  - TPKeyboardAvoiding (1.2.6)
 
 DEPENDENCIES:
-  - Dollar (= 2.1.1)
   - PromiseKit/Swift (from `https://github.com/mxcl/PromiseKit.git`)
   - Realm (= 0.91.1)
+  - TPKeyboardAvoiding (= 1.2.6)
 
 EXTERNAL SOURCES:
   PromiseKit:
@@ -34,13 +34,13 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   PromiseKit:
-    :commit: fbec6e1456938beaf5b6fd844eb173e4d57b9900
+    :commit: 7fdef1e6e41c6c7c94bb3c45e2ec17a4222b2af7
     :git: https://github.com/mxcl/PromiseKit.git
 
 SPEC CHECKSUMS:
-  Dollar: 13f15d4bd8175069b9996293448fb5a83b3276bd
   OMGHTTPURLRQ: f8c515dfd2f57a5d74c710978f600231f52afec5
-  PromiseKit: 4fae6b52b76d8fd7212ec41ad09d1342878a0aee
+  PromiseKit: cb38b2c63f792f446d8a08e1d5ecb65347b31777
   Realm: b9c1fd9defa26aa7276ce938a8df52ec81f24528
+  TPKeyboardAvoiding: ee4dd35e3bb7bb64bfbda47e7cc9ba872ff10f77
 
 COCOAPODS: 0.36.3
