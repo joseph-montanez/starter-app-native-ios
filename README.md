@@ -8,7 +8,7 @@ This project is packaged together with [CocoaPods](https://cocoapods.org), so yo
 
 ### How to Install CocoaPods
 
-As a note if you have the beta version of CocoaPods, please update before attempting. Swift is a recent addition to CocoaPods, and there has been new release and big fixes recently.
+As a note if you have the beta version of CocoaPods, please update before attempting. Swift is a recent addition to CocoaPods, and there has been new releases and bug fixes recently.
 
 	sudo gem install cocoapods
 	
