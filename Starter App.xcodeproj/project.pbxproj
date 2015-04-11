@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F41E71401AD93C650005A0FE /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E713F1AD93C650005A0FE /* StartController.swift */; };
+		F41E71431AD93D0F0005A0FE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E71421AD93D0F0005A0FE /* User.swift */; };
+		F41E71451AD93D8E0005A0FE /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E71441AD93D8E0005A0FE /* RLMSupport.swift */; };
+		F41E71471AD93E240005A0FE /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E71461AD93E240005A0FE /* LocalStorage.swift */; };
+		F41E71491AD93F8C0005A0FE /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E71481AD93F8C0005A0FE /* HomeController.swift */; };
+		F41E714B1AD952B70005A0FE /* SharedMemory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E714A1AD952B70005A0FE /* SharedMemory.swift */; };
 		F44C26581AD7BAC9003BD6B1 /* KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44C26571AD7BAC9003BD6B1 /* KeyboardNotification.swift */; };
 		F46DA01C1AD3EA9D0088E2DB /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46DA01B1AD3EA9D0088E2DB /* Api.swift */; };
 		F46DA0201AD3F0C40088E2DB /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F46DA01D1AD3F0C30088E2DB /* FBSDKCoreKit.framework */; };
 		F46DA0211AD3F0C40088E2DB /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F46DA01E1AD3F0C30088E2DB /* FBSDKLoginKit.framework */; };
 		F46DA0221AD3F0C40088E2DB /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F46DA01F1AD3F0C30088E2DB /* FBSDKShareKit.framework */; };
-		F47E757A1AD278710047C968 /* HomeScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E75791AD278710047C968 /* HomeScrollView.swift */; };
 		F47E757C1AD27DD80047C968 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E757B1AD27DD80047C968 /* LoginController.swift */; };
 		F491E1C51AD2577F0087377E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491E1C41AD2577F0087377E /* AppDelegate.swift */; };
 		F491E1C71AD2577F0087377E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491E1C61AD2577F0087377E /* ViewController.swift */; };
@@ -37,13 +42,18 @@
 		6809F7E9110A324D6C7AA36F /* Pods-Starter App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Starter App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Starter App/Pods-Starter App.release.xcconfig"; sourceTree = "<group>"; };
 		726BA595028A1C230270D47D /* Pods-Starter App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Starter App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Starter App/Pods-Starter App.debug.xcconfig"; sourceTree = "<group>"; };
 		796AAFB88FFB9DDDBBDC7B10 /* Pods_Starter_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Starter_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F41E713F1AD93C650005A0FE /* StartController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartController.swift; sourceTree = "<group>"; };
+		F41E71421AD93D0F0005A0FE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F41E71441AD93D8E0005A0FE /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
+		F41E71461AD93E240005A0FE /* LocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		F41E71481AD93F8C0005A0FE /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		F41E714A1AD952B70005A0FE /* SharedMemory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedMemory.swift; sourceTree = "<group>"; };
 		F44C26571AD7BAC9003BD6B1 /* KeyboardNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardNotification.swift; sourceTree = "<group>"; };
 		F46DA01B1AD3EA9D0088E2DB /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		F46DA01D1AD3F0C30088E2DB /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		F46DA01E1AD3F0C30088E2DB /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		F46DA01F1AD3F0C30088E2DB /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		F46DA0231AD3F11F0088E2DB /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
-		F47E75791AD278710047C968 /* HomeScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScrollView.swift; sourceTree = "<group>"; };
 		F47E757B1AD27DD80047C968 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		F491E1BF1AD2577E0087377E /* Starter App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Starter App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F491E1C31AD2577E0087377E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,6 +106,37 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F41E713D1AD93C180005A0FE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F47E757B1AD27DD80047C968 /* LoginController.swift */,
+				F491E1C61AD2577F0087377E /* ViewController.swift */,
+				F41E713F1AD93C650005A0FE /* StartController.swift */,
+				F41E71481AD93F8C0005A0FE /* HomeController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		F41E713E1AD93C390005A0FE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F41E71441AD93D8E0005A0FE /* RLMSupport.swift */,
+				F46DA01B1AD3EA9D0088E2DB /* Api.swift */,
+				F44C26571AD7BAC9003BD6B1 /* KeyboardNotification.swift */,
+				F41E714A1AD952B70005A0FE /* SharedMemory.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		F41E71411AD93CFD0005A0FE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F41E71421AD93D0F0005A0FE /* User.swift */,
+				F41E71461AD93E240005A0FE /* LocalStorage.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		F491E1B61AD2577E0087377E = {
 			isa = PBXGroup;
 			children = (
@@ -123,16 +164,14 @@
 		F491E1C11AD2577E0087377E /* Starter App */ = {
 			isa = PBXGroup;
 			children = (
+				F41E71411AD93CFD0005A0FE /* Models */,
+				F41E713E1AD93C390005A0FE /* Utils */,
+				F41E713D1AD93C180005A0FE /* Controllers */,
 				F491E1C41AD2577F0087377E /* AppDelegate.swift */,
-				F491E1C61AD2577F0087377E /* ViewController.swift */,
-				F47E75791AD278710047C968 /* HomeScrollView.swift */,
-				F47E757B1AD27DD80047C968 /* LoginController.swift */,
 				F491E1C81AD2577F0087377E /* Main.storyboard */,
 				F491E1CB1AD2577F0087377E /* Images.xcassets */,
 				F491E1CD1AD2577F0087377E /* LaunchScreen.xib */,
 				F491E1C21AD2577E0087377E /* Supporting Files */,
-				F46DA01B1AD3EA9D0088E2DB /* Api.swift */,
-				F44C26571AD7BAC9003BD6B1 /* KeyboardNotification.swift */,
 			);
 			path = "Starter App";
 			sourceTree = "<group>";
@@ -314,10 +353,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F491E1C71AD2577F0087377E /* ViewController.swift in Sources */,
+				F41E71471AD93E240005A0FE /* LocalStorage.swift in Sources */,
+				F41E71451AD93D8E0005A0FE /* RLMSupport.swift in Sources */,
 				F47E757C1AD27DD80047C968 /* LoginController.swift in Sources */,
-				F47E757A1AD278710047C968 /* HomeScrollView.swift in Sources */,
+				F41E71491AD93F8C0005A0FE /* HomeController.swift in Sources */,
 				F44C26581AD7BAC9003BD6B1 /* KeyboardNotification.swift in Sources */,
+				F41E714B1AD952B70005A0FE /* SharedMemory.swift in Sources */,
+				F41E71431AD93D0F0005A0FE /* User.swift in Sources */,
 				F46DA01C1AD3EA9D0088E2DB /* Api.swift in Sources */,
+				F41E71401AD93C650005A0FE /* StartController.swift in Sources */,
 				F491E1C51AD2577F0087377E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

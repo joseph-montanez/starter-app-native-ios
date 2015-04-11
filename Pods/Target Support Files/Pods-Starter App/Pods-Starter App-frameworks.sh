@@ -48,14 +48,14 @@ code_sign() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework 'Dollar.framework'
   install_framework 'OMGHTTPURLRQ.framework'
   install_framework 'PromiseKit.framework'
   install_framework 'Realm.framework'
+  install_framework 'TPKeyboardAvoiding.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework 'Dollar.framework'
   install_framework 'OMGHTTPURLRQ.framework'
   install_framework 'PromiseKit.framework'
   install_framework 'Realm.framework'
+  install_framework 'TPKeyboardAvoiding.framework'
 fi

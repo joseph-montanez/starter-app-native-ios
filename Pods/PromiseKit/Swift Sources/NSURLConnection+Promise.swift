@@ -17,7 +17,7 @@ extension NSURLResponse {
 
 private func fetch<T>(var request: NSURLRequest, body: ((T) -> Void, (NSError) -> Void, NSData, NSURLResponse) -> Void) -> Promise<T> {
     if request.valueForHTTPHeaderField("User-Agent") == nil {
-        let rq = request.mutableCopy() as NSMutableURLRequest
+        let rq = request.mutableCopy() as! NSMutableURLRequest
         rq.setValue(OMGUserAgent(), forHTTPHeaderField:"User-Agent")
         request = rq
     }
@@ -31,9 +31,9 @@ private func fetch<T>(var request: NSURLRequest, body: ((T) -> Void, (NSError) -
             //TODO in the event of a non 2xx rsp, try to parse JSON out of the response anyway
 
             func rejecter(error: NSError) {
-                let info = NSMutableDictionary(dictionary: error.userInfo ?? [:])
+                var info: [NSObject: AnyObject] = error.userInfo ?? [:]
                 info[NSURLErrorFailingURLErrorKey] = request.URL
-                info[NSURLErrorFailingURLStringErrorKey] = request.URL.absoluteString
+                info[NSURLErrorFailingURLStringErrorKey] = request.URL!.absoluteString
                 if data != nil {
                     info[PMKURLErrorFailingDataKey] = data!
                     let encoding = rsp?.stringEncoding ?? NSUTF8StringEncoding
@@ -52,25 +52,20 @@ private func fetch<T>(var request: NSURLRequest, body: ((T) -> Void, (NSError) -
             if err != nil {
                 rejecter(err)
             } else {
-                if let response = (rsp as? NSHTTPURLResponse) {
-                    if response.statusCode < 200 || response.statusCode >= 300 {
-                        rejecter(NSError(domain: NSURLErrorDomain,
-                                         code: NSURLErrorBadServerResponse,
-                                         userInfo: [
-                                             NSLocalizedDescriptionKey: "The server returned a bad HTTP response code",
-                                             NSURLErrorFailingURLStringErrorKey: request.URL.absoluteString!,
-                                             NSURLErrorFailingURLErrorKey: request.URL
-                                         ]))
-
-                        return
-                    }
+                if let response = (rsp as? NSHTTPURLResponse) where response.statusCode < 200 || response.statusCode >= 300 {
+                    rejecter(NSError(domain: NSURLErrorDomain,
+                                     code: NSURLErrorBadServerResponse,
+                                     userInfo: [
+                                         NSLocalizedDescriptionKey: "The server returned a bad HTTP response code",
+                                     ]))
+                } else {
+                    body(fulfiller, rejecter, data, rsp)
                 }
-
-                body(fulfiller, rejecter, data, rsp)
             }
         }
     }
 }
+
 
 private func fetchJSON<T>(request: NSURLRequest) -> Promise<T> {
     return fetch(request) { (fulfill, reject, data, _) in
@@ -171,7 +166,7 @@ extension NSURLConnection {
         return fetch(rq) { (fulfiller, rejecter, data, rsp) in
             let str = NSString(data: data, encoding:rsp.stringEncoding)
             if str != nil {
-                fulfiller(str!)
+                fulfiller(str! as String)
             } else {
                 let info = [NSLocalizedDescriptionKey: "The server response was not textual"]
                 rejecter(NSError(domain:NSURLErrorDomain, code: NSURLErrorBadServerResponse, userInfo:info))

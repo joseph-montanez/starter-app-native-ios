@@ -6,12 +6,6 @@
 // project.
 
 
-// Dollar
-#define COCOAPODS_POD_AVAILABLE_Dollar
-#define COCOAPODS_VERSION_MAJOR_Dollar 2
-#define COCOAPODS_VERSION_MINOR_Dollar 1
-#define COCOAPODS_VERSION_PATCH_Dollar 1
-
 // OMGHTTPURLRQ
 #define COCOAPODS_POD_AVAILABLE_OMGHTTPURLRQ
 #define COCOAPODS_VERSION_MAJOR_OMGHTTPURLRQ 2
@@ -39,32 +33,32 @@
 // PromiseKit/Swift
 #define COCOAPODS_POD_AVAILABLE_PromiseKit_Swift
 #define COCOAPODS_VERSION_MAJOR_PromiseKit_Swift 1
-#define COCOAPODS_VERSION_MINOR_PromiseKit_Swift 4
-#define COCOAPODS_VERSION_PATCH_PromiseKit_Swift 2
+#define COCOAPODS_VERSION_MINOR_PromiseKit_Swift 5
+#define COCOAPODS_VERSION_PATCH_PromiseKit_Swift 0
 
 // PromiseKit/Swift/Foundation
 #define COCOAPODS_POD_AVAILABLE_PromiseKit_Swift_Foundation
 #define COCOAPODS_VERSION_MAJOR_PromiseKit_Swift_Foundation 1
-#define COCOAPODS_VERSION_MINOR_PromiseKit_Swift_Foundation 4
-#define COCOAPODS_VERSION_PATCH_PromiseKit_Swift_Foundation 2
+#define COCOAPODS_VERSION_MINOR_PromiseKit_Swift_Foundation 5
+#define COCOAPODS_VERSION_PATCH_PromiseKit_Swift_Foundation 0
 
 // PromiseKit/Swift/NSJSONFromData
 #define COCOAPODS_POD_AVAILABLE_PromiseKit_Swift_NSJSONFromData
 #define COCOAPODS_VERSION_MAJOR_PromiseKit_Swift_NSJSONFromData 1
-#define COCOAPODS_VERSION_MINOR_PromiseKit_Swift_NSJSONFromData 4
-#define COCOAPODS_VERSION_PATCH_PromiseKit_Swift_NSJSONFromData 2
+#define COCOAPODS_VERSION_MINOR_PromiseKit_Swift_NSJSONFromData 5
+#define COCOAPODS_VERSION_PATCH_PromiseKit_Swift_NSJSONFromData 0
 
 // PromiseKit/Swift/Promise
 #define COCOAPODS_POD_AVAILABLE_PromiseKit_Swift_Promise
 #define COCOAPODS_VERSION_MAJOR_PromiseKit_Swift_Promise 1
-#define COCOAPODS_VERSION_MINOR_PromiseKit_Swift_Promise 4
-#define COCOAPODS_VERSION_PATCH_PromiseKit_Swift_Promise 2
+#define COCOAPODS_VERSION_MINOR_PromiseKit_Swift_Promise 5
+#define COCOAPODS_VERSION_PATCH_PromiseKit_Swift_Promise 0
 
 // PromiseKit/Swift/UIKit
 #define COCOAPODS_POD_AVAILABLE_PromiseKit_Swift_UIKit
 #define COCOAPODS_VERSION_MAJOR_PromiseKit_Swift_UIKit 1
-#define COCOAPODS_VERSION_MINOR_PromiseKit_Swift_UIKit 4
-#define COCOAPODS_VERSION_PATCH_PromiseKit_Swift_UIKit 2
+#define COCOAPODS_VERSION_MINOR_PromiseKit_Swift_UIKit 5
+#define COCOAPODS_VERSION_PATCH_PromiseKit_Swift_UIKit 0
 
 // Realm
 #define COCOAPODS_POD_AVAILABLE_Realm
@@ -77,4 +71,10 @@
 #define COCOAPODS_VERSION_MAJOR_Realm_Headers 0
 #define COCOAPODS_VERSION_MINOR_Realm_Headers 91
 #define COCOAPODS_VERSION_PATCH_Realm_Headers 1
+
+// TPKeyboardAvoiding
+#define COCOAPODS_POD_AVAILABLE_TPKeyboardAvoiding
+#define COCOAPODS_VERSION_MAJOR_TPKeyboardAvoiding 1
+#define COCOAPODS_VERSION_MINOR_TPKeyboardAvoiding 2
+#define COCOAPODS_VERSION_PATCH_TPKeyboardAvoiding 6
 

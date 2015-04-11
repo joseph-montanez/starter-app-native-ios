@@ -42,76 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Starter App/LoginController.swift"
-            timestampString = "450356649.800502"
+            timestampString = "450440651.672596"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "viewDidAppear(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Starter App/LoginController.swift"
-            timestampString = "450356600.09917"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "keyboardWillShow(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Starter App/LoginController.swift"
-            timestampString = "450356600.09917"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "keyboardWillShow(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Starter App/LoginController.swift"
-            timestampString = "450356649.800502"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "keyboardWillShow(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Starter App/LoginController.swift"
-            timestampString = "450356649.800502"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "keyboardWillShow(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -137,13 +73,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Starter App/LoginController.swift"
-            timestampString = "450356600.09917"
+            filePath = "Starter App/StartController.swift"
+            timestampString = "450447367.146132"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "keyboardWillShow(_:)"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -153,29 +89,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Starter App/LoginController.swift"
-            timestampString = "450356649.800502"
+            filePath = "Starter App/StartController.swift"
+            timestampString = "450451265.254302"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "keyboardWillShow(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Starter App/LoginController.swift"
-            timestampString = "450356649.800502"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "keyboardWillShow(_:)"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

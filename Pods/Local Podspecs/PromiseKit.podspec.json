@@ -1,9 +1,9 @@
 {
   "name": "PromiseKit",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "source": {
     "git": "https://github.com/mxcl/PromiseKit.git",
-    "tag": "1.4.2"
+    "tag": "1.5.0"
   },
   "license": "MIT",
   "summary": "A delightful Promises implementation for iOS and OS X.",

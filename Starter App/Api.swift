@@ -8,14 +8,14 @@
 
 import Foundation
 import PromiseKit
-import Dollar
+//import Dollar
 
 class Api {
     let endPoint = "http://hawk2.comentum.com/templates/start-app-laravel"
     
     func parseJson(jsonData: NSData) -> NSArray {
         var error: NSError?
-        let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: &error) as NSArray
+        let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: &error) as! NSArray
         return jsonDict
     }
     /*

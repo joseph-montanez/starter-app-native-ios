@@ -16,7 +16,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         UIImageView(image: UIImage(named: "photo2"))
     ]
     var frame: CGRect = CGRectMake(0, 0, 0, 0)
-    @IBOutlet weak var scrollView: HomeScrollView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
 
     override func viewDidLoad() {
