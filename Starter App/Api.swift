@@ -7,17 +7,27 @@
 //
 
 import Foundation
-import PromiseKit
+import Alamofire
 //import Dollar
 
 class Api {
-    let endPoint = "http://hawk2.comentum.com/templates/start-app-laravel"
+    static let endPoint = "http://localhost:8000/api/v1"
+    
     
     func parseJson(jsonData: NSData) -> NSArray {
         var error: NSError?
         let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: &error) as! NSArray
         return jsonDict
     }
+    
+//    func tokenGenerate(uuid: String) {
+//        Alamofire.request(.GET, endPoint + "token/generate", parameters: ["uuid": uuid])
+//            .responseJSON {
+//                
+//        }
+//    }
+    
+    
     /*
     func search(value: String) -> Promise<[TPSearchItem]> {
         let searchEndPoint = "\(endPoint)/related-keywords.php"

@@ -11,10 +11,12 @@ import Realm
 
 class SharedMemory {
     let defaultRealm: RLMRealm
+    var token: String?
     static let sharedInstance = SharedMemory()
     
     init() {
         defaultRealm = RLMRealm.defaultRealm()
+        token = ""
     }
     
 }

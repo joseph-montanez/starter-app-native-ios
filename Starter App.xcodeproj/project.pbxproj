@@ -25,6 +25,8 @@
 		F491E1CC1AD2577F0087377E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F491E1CB1AD2577F0087377E /* Images.xcassets */; };
 		F491E1CF1AD2577F0087377E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F491E1CD1AD2577F0087377E /* LaunchScreen.xib */; };
 		F491E1DB1AD2577F0087377E /* Starter_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491E1DA1AD2577F0087377E /* Starter_AppTests.swift */; };
+		F49981FF1ADA7E1A001D6796 /* LocalStorageTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49981FE1ADA7E1A001D6796 /* LocalStorageTask.swift */; };
+		F49982021ADA8550001D6796 /* TokenApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49982011ADA8550001D6796 /* TokenApi.swift */; };
 		FD7909F8EE25045D1C63E469 /* Pods_Starter_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796AAFB88FFB9DDDBBDC7B10 /* Pods_Starter_App.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -65,6 +67,8 @@
 		F491E1D41AD2577F0087377E /* Starter AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Starter AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F491E1D91AD2577F0087377E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F491E1DA1AD2577F0087377E /* Starter_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Starter_AppTests.swift; sourceTree = "<group>"; };
+		F49981FE1ADA7E1A001D6796 /* LocalStorageTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorageTask.swift; sourceTree = "<group>"; };
+		F49982011ADA8550001D6796 /* TokenApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +168,8 @@
 		F491E1C11AD2577E0087377E /* Starter App */ = {
 			isa = PBXGroup;
 			children = (
+				F49982001ADA8535001D6796 /* Api */,
+				F49981FD1ADA7B55001D6796 /* Tasks */,
 				F41E71411AD93CFD0005A0FE /* Models */,
 				F41E713E1AD93C390005A0FE /* Utils */,
 				F41E713D1AD93C180005A0FE /* Controllers */,
@@ -199,6 +205,22 @@
 				F491E1D91AD2577F0087377E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F49981FD1ADA7B55001D6796 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				F49981FE1ADA7E1A001D6796 /* LocalStorageTask.swift */,
+			);
+			name = Tasks;
+			sourceTree = "<group>";
+		};
+		F49982001ADA8535001D6796 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				F49982011ADA8550001D6796 /* TokenApi.swift */,
+			);
+			name = Api;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,6 +382,8 @@
 				F44C26581AD7BAC9003BD6B1 /* KeyboardNotification.swift in Sources */,
 				F41E714B1AD952B70005A0FE /* SharedMemory.swift in Sources */,
 				F41E71431AD93D0F0005A0FE /* User.swift in Sources */,
+				F49982021ADA8550001D6796 /* TokenApi.swift in Sources */,
+				F49981FF1ADA7E1A001D6796 /* LocalStorageTask.swift in Sources */,
 				F46DA01C1AD3EA9D0088E2DB /* Api.swift in Sources */,
 				F41E71401AD93C650005A0FE /* StartController.swift in Sources */,
 				F491E1C51AD2577F0087377E /* AppDelegate.swift in Sources */,

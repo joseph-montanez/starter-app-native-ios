@@ -4,17 +4,22 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-Starter App-OMGHTTPURLRQ.xcscheme</key>
+		<key>Pods-Starter App-Alamofire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Starter App-PromiseKit.xcscheme</key>
+		<key>Pods-Starter App-Async.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-Starter App-Realm.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Starter App-SwiftTask.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0DC916E29276E3EDA19DBA57</key>
+		<key>021AD7843F97CC2D9882BBDD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3521538B4DCA7591889DABE8</key>
+		<key>5789E08A0B27F1CF719D8AF4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>45051043F4938BA047425515</key>
+		<key>977C9762F6F794EEAE4C60B6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>598F0969F379E97433CAAAC0</key>
+		<key>A4AEAD2F8FB711C484784A23</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5A9ABF86FCAC792302637841</key>
+		<key>D70159673C8FC64B70487213</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F4632A159C6117DB2C534CCC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

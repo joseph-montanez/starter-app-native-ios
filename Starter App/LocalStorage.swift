@@ -8,9 +8,12 @@
 
 import Foundation
 import Realm
-import PromiseKit
+import SwiftTask
+import Async
 
 class LocalStorage: RLMObject {
+    typealias LocalStorageTask = SwiftTask.Task<Float, LocalStorage, NSError>
+    
     dynamic var token = ""
     dynamic var uuid = ""
     dynamic var user: User?
@@ -21,51 +24,29 @@ class LocalStorage: RLMObject {
         return identifier
     }
     
-    static func getStorage() -> Promise<LocalStorage> {
-        let promise = Promise<LocalStorage> { fulfiller, rejecter in
-            let realm = SharedMemory.sharedInstance.defaultRealm
-            
-            let storages = LocalStorage.allObjects()
-            let storage: LocalStorage
-            if storages.count == 0 {
-                //-- They never used this app! Let go intialize a storage for them.
-                storage = LocalStorage()
-            } else {
-                let found: Bool
-                switch storages[0] {
-                case let item as LocalStorage:
-                    storage = item
-                default:
-                    //-- Something is really wrong! Let try to fix this!
-                    realm.beginWriteTransaction()
-                    for item in storages {
-                        realm.deleteObject(item)
-                    }
-                    realm.commitWriteTransaction()
-                    
-                    // Alright everything is delete now lets start over...
-                    storage = LocalStorage()
-                }
-            }
-            
-            fulfiller(storage)
-            
-            //-- I really dont like that this does not have a rejecter...
-//            let error = NSError(domain: "Unable to intialize a local storage", code: 1000, userInfo: nil)
-//            rejecter(error)
-        }
+    static func loadFromDisk() -> LocalStorage {
+        let realm = SharedMemory.sharedInstance.defaultRealm
         
-        return promise
-    }
-    
-    static func checkUUID(promise:Promise<LocalStorage>) -> Promise<LocalStorage> {
-        return promise.then { store -> LocalStorage in
-            //-- Let see if the UUID if set!
-            if count(store.uuid) == 0 {
-                store.generateUUID()
+        let storages = LocalStorage.allObjects()
+        if storages.count == 0 {
+            //-- They never used this app! Let go intialize a storage for them.
+            return LocalStorage()
+        } else {
+            let found: Bool
+            switch storages[0] {
+            case let storage as LocalStorage:
+                return storage
+            default:
+                //-- Something is really wrong! Let try to fix this!
+                realm.beginWriteTransaction()
+                for item in storages {
+                    realm.deleteObject(item)
+                }
+                realm.commitWriteTransaction()
+                
+                // Alright everything is delete now lets start over...
+                return LocalStorage()
             }
-            
-            return store
         }
     }
 }

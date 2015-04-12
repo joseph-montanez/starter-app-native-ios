@@ -1,46 +1,33 @@
 PODS:
-  - OMGHTTPURLRQ (2.1):
-    - OMGHTTPURLRQ/RQ (= 2.1)
-  - OMGHTTPURLRQ/FormURLEncode (2.1)
-  - OMGHTTPURLRQ/RQ (2.1):
-    - OMGHTTPURLRQ/FormURLEncode
-    - OMGHTTPURLRQ/UserAgent
-  - OMGHTTPURLRQ/UserAgent (2.1)
-  - PromiseKit/Swift (1.5.0):
-    - PromiseKit/Swift/Foundation (= 1.5.0)
-    - PromiseKit/Swift/UIKit (= 1.5.0)
-  - PromiseKit/Swift/Foundation (1.5.0):
-    - OMGHTTPURLRQ
-    - PromiseKit/Swift/NSJSONFromData
-    - PromiseKit/Swift/Promise
-  - PromiseKit/Swift/NSJSONFromData (1.5.0):
-    - PromiseKit/Swift/Promise
-  - PromiseKit/Swift/Promise (1.5.0)
-  - PromiseKit/Swift/UIKit (1.5.0):
-    - PromiseKit/Swift/Promise
+  - Alamofire (1.2.0)
+  - Async (1.2.0)
   - Realm (0.91.1):
     - Realm/Headers (= 0.91.1)
   - Realm/Headers (0.91.1)
+  - SwiftTask (3.0.0)
   - TPKeyboardAvoiding (1.2.6)
 
 DEPENDENCIES:
-  - PromiseKit/Swift (from `https://github.com/mxcl/PromiseKit.git`)
-  - Realm (= 0.91.1)
-  - TPKeyboardAvoiding (= 1.2.6)
+  - Alamofire (~> 1.2)
+  - Async (from `https://github.com/duemunk/Async.git`)
+  - Realm (~> 0.91)
+  - SwiftTask (~> 3.0)
+  - TPKeyboardAvoiding (~> 1.2)
 
 EXTERNAL SOURCES:
-  PromiseKit:
-    :git: https://github.com/mxcl/PromiseKit.git
+  Async:
+    :git: https://github.com/duemunk/Async.git
 
 CHECKOUT OPTIONS:
-  PromiseKit:
-    :commit: 7fdef1e6e41c6c7c94bb3c45e2ec17a4222b2af7
-    :git: https://github.com/mxcl/PromiseKit.git
+  Async:
+    :commit: 2f0c5b69e3ff0e41c9391016b7855cd319000515
+    :git: https://github.com/duemunk/Async.git
 
 SPEC CHECKSUMS:
-  OMGHTTPURLRQ: f8c515dfd2f57a5d74c710978f600231f52afec5
-  PromiseKit: cb38b2c63f792f446d8a08e1d5ecb65347b31777
+  Alamofire: d765c5c1713aa64106b0228aaa600a1e6851f68d
+  Async: aba7b48a4cd05dae27d1affce2f48f2ed61e75f9
   Realm: b9c1fd9defa26aa7276ce938a8df52ec81f24528
+  SwiftTask: 2f2c0a7db83def1d1e3bad518169be3f61c603f4
   TPKeyboardAvoiding: ee4dd35e3bb7bb64bfbda47e7cc9ba872ff10f77
 
 COCOAPODS: 0.36.3
