@@ -47,24 +47,30 @@ class StartController: UIViewController {
         
         //-- User is authorized,
         job.success { (store: LocalStorage) -> LocalStorage in
-            println("I done got it")  // Oh My God
+            //-- Save to disk
+            Async.background() {
+                store.saveToDisk()
+            }
             
+            Async.main() {
+                self.performSegueWithIdentifier("HomeSegue", sender: self)
+                return
+            }
             return store
         }
         
         //-- User is not authorized
         job.failure { (error: NSError?, isCancelled: Bool) -> LocalStorage in
-            println("I lost :( \(error!)")  // Oh My God
+            Async.main() {
+                self.performSegueWithIdentifier("MarketingSegue", sender: self)
+                return
+            }
             return LocalStorage()
         }
     }
     
     override func viewDidLoad() {
-        //-- This needs to be removed once logic is figured out
-        Async.main() {
-            self.performSegueWithIdentifier("MarketingSegue", sender: self)
-            return
-        }
+        super.viewDidLoad()
     }
     
 
