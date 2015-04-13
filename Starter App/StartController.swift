@@ -32,21 +32,11 @@ class StartController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-       
         
-        //-- Find the local storage
-        let task = LocalStorageTask()
-        //-- Get storage from disk
-        let job = task.getStorage()
-        //-- See if there is a UUID assigned
-            .then(task.checkUUID)
-            //-- Check if there is a token
-            .then(task.getToken)
-            //-- Check to see if token is authorized
-            .then(task.isAuthorized)
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         //-- User is authorized,
-        job.success { (store: LocalStorage) -> LocalStorage in
+        appDelegate.job!.success { (store: LocalStorage) -> LocalStorage in
             //-- Save to disk
             Async.background() {
                 store.saveToDisk()
@@ -60,7 +50,7 @@ class StartController: UIViewController {
         }
         
         //-- User is not authorized
-        job.failure { (error: NSError?, isCancelled: Bool) -> LocalStorage in
+        appDelegate.job!.failure { (error: NSError?, isCancelled: Bool) -> LocalStorage in
             Async.main() {
                 self.performSegueWithIdentifier("MarketingSegue", sender: self)
                 return

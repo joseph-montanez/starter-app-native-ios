@@ -26,15 +26,41 @@
 //
 
 import UIKit
+import Realm
+import Async
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var job: LocalStorageTask.LSTask?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        RLMRealm.setSchemaVersion(1, forRealmAtPath: RLMRealm.defaultRealmPath(),
+            withMigrationBlock: { migration, oldSchemaVersion in
+                // We haven’t migrated anything yet, so oldSchemaVersion == 0
+                if oldSchemaVersion < 1 {
+                    // Nothing to do!
+                    // Realm will automatically detect new properties and removed properties
+                    // And will update the schema on disk automatically
+                }
+        })
+        
+        
+        //-- Lets start to process user auth as soon as possible!
+        let task = LocalStorageTask()
+        //-- Get storage from disk
+        job = task.getStorage()
+            //-- See if there is a UUID assigned
+            .then(task.checkUUID)
+            //-- Check if there is a token
+            .then(task.getToken)
+            //-- Check to see if token is authorized
+            .then(task.isAuthorized)
+        
+        
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 

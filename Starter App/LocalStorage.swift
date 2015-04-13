@@ -53,6 +53,10 @@ class LocalStorage: RLMObject {
         
     }
     
+    override class func primaryKey() -> String {
+        return "id"
+    }
+    
     static func loadFromDisk() -> LocalStorage {
         let realm = SharedMemory.sharedInstance.defaultRealm
         
