@@ -33,6 +33,21 @@ import Alamofire
 class LocalStorageTask {
     typealias LSTask = SwiftTask.Task<Float, LocalStorage, NSError>
     
+    var task: LSTask?
+    
+    func exec() -> LSTask {
+        //-- Lets start to process user auth as soon as possible!
+        let task = LocalStorageTask()
+        //-- Get storage from disk
+        return task.getStorage()
+            //-- See if there is a UUID assigned
+            .then(task.checkUUID)
+            //-- Check if there is a token
+            .then(task.getToken)
+            //-- Check to see if token is authorized
+            .then(task.isAuthorized)
+    }
+    
     func getStorage() -> LSTask {
         return LSTask { progress, fulfill, reject, configure in
             Async.background() {

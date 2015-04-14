@@ -48,18 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
         })
         
-        
-        //-- Lets start to process user auth as soon as possible!
-        let task = LocalStorageTask()
-        //-- Get storage from disk
-        job = task.getStorage()
-            //-- See if there is a UUID assigned
-            .then(task.checkUUID)
-            //-- Check if there is a token
-            .then(task.getToken)
-            //-- Check to see if token is authorized
-            .then(task.isAuthorized)
-        
+        job = LocalStorageTask().exec()
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }

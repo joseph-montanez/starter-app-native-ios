@@ -8,6 +8,7 @@ target 'Starter App' do
 	# pod 'Dollar', :git => 'https://github.com/ankurp/Dollar.swift.git', :branch => 'xcode-6.3-beta-swift-1.2', :commit => 'da2549defb'
 	pod 'Realm', '~> 0.91'
 	pod 'TPKeyboardAvoiding', '~> 1.2'
+	pod 'IQKeyboardManager'
 	pod 'Alamofire', '~> 1.2'
 	pod 'SwiftTask', '~> 3.0'
 	pod 'Async', :git => 'https://github.com/duemunk/Async.git'
