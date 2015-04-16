@@ -27,14 +27,14 @@
 import Foundation
 import Alamofire
 
-enum TokenApi: URLRequestConvertible {
+public enum TokenApi: URLRequestConvertible {
     static var prefix: String = "/token"
     
     case Generate(String)
     case Authenticate(String)
     case Validate(String)
     
-    var method: Alamofire.Method {
+    public var method: Alamofire.Method {
         switch self {
         case .Generate:
             return .POST
@@ -45,12 +45,12 @@ enum TokenApi: URLRequestConvertible {
         }
     }
     
-    var path: String {
+    public var path: String {
         switch self {
         case .Generate:
             return TokenApi.prefix + "/generate"
         case .Authenticate:
-            return TokenApi.prefix + "/athorized"
+            return TokenApi.prefix + "/authorize"
         case .Validate:
             return TokenApi.prefix + "/validate"
         }
@@ -58,7 +58,7 @@ enum TokenApi: URLRequestConvertible {
     
     // MARK: URLRequestConvertible
     
-    var URLRequest: NSURLRequest {
+    public var URLRequest: NSURLRequest {
         let URL = NSURL(string: Api.endPoint)!
         let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
         mutableURLRequest.HTTPMethod = method.rawValue

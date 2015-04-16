@@ -31,20 +31,20 @@ import Realm
 import SwiftTask
 import Async
 
-class LocalStorage: RLMObject {
+public class LocalStorage: RLMObject {
     typealias LocalStorageTask = SwiftTask.Task<Float, LocalStorage, NSError>
     dynamic var id = 1
-    dynamic var token = ""
+    public dynamic var token = ""
     dynamic var uuid = ""
     dynamic var user: User?
     
-    func generateUUID() -> String {
+    public func generateUUID() -> String {
         let identifier = NSUUID().UUIDString
         uuid = identifier
         return identifier
     }
     
-    func saveToDisk() {
+    public func saveToDisk() {
         let realm = SharedMemory.sharedInstance.defaultRealm
         
         realm.beginWriteTransaction()
@@ -53,11 +53,11 @@ class LocalStorage: RLMObject {
         
     }
     
-    override class func primaryKey() -> String {
+    override public class func primaryKey() -> String {
         return "id"
     }
     
-    static func loadFromDisk() -> LocalStorage {
+    public static func loadFromDisk() -> LocalStorage {
         let realm = SharedMemory.sharedInstance.defaultRealm
         
         let storages = LocalStorage.allObjects()
