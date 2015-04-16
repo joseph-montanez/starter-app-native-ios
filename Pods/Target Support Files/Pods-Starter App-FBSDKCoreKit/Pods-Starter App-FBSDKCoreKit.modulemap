@@ -1,0 +1,6 @@
+framework module FBSDKCoreKit {
+  umbrella header "Pods-Starter App-FBSDKCoreKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

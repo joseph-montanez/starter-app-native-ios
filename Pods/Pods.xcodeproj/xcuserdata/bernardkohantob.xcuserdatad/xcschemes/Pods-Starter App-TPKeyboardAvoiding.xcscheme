@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52B691BB8132E39EE4D0B5F0"
+               BlueprintIdentifier = "B230F7977DA843588873B59F"
                BuildableName = "TPKeyboardAvoiding.framework"
                BlueprintName = "Pods-Starter App-TPKeyboardAvoiding"
                ReferencedContainer = "container:Pods.xcodeproj">

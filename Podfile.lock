@@ -1,17 +1,50 @@
 PODS:
   - Alamofire (1.2.0)
   - Async (1.2.0)
+  - Bolts (1.1.4)
+  - FBSDKCoreKit (4.0.1):
+    - Bolts (~> 1.1)
+    - FBSDKCoreKit/arc (= 4.0.1)
+    - FBSDKCoreKit/no-arc (= 4.0.1)
+  - FBSDKCoreKit/arc (4.0.1):
+    - Bolts (~> 1.1)
+  - FBSDKCoreKit/no-arc (4.0.1):
+    - Bolts (~> 1.1)
+    - FBSDKCoreKit/arc
+  - FBSDKLoginKit (4.0.1):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.0.1):
+    - FBSDKCoreKit
   - IQKeyboardManager (3.2.2)
+  - Mockingjay (0.2.0):
+    - Mockingjay/Core (= 0.2.0)
+    - Mockingjay/Session (= 0.2.0)
+    - Mockingjay/XCTest (= 0.2.0)
+  - Mockingjay/Core (0.2.0):
+    - URITemplate (~> 1.2)
+  - Mockingjay/Session (0.2.0):
+    - Mockingjay/Core
+  - Mockingjay/XCTest (0.2.0):
+    - Mockingjay/Core
+  - Nimble (0.4.2)
+  - Quick (0.3.1)
   - Realm (0.91.1):
     - Realm/Headers (= 0.91.1)
   - Realm/Headers (0.91.1)
   - SwiftTask (3.0.0)
   - TPKeyboardAvoiding (1.2.6)
+  - URITemplate (1.2.0)
 
 DEPENDENCIES:
   - Alamofire (~> 1.2)
   - Async (from `https://github.com/duemunk/Async.git`)
+  - FBSDKCoreKit (from `https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKCoreKit.podspec`)
+  - FBSDKLoginKit (from `https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKLoginKit.podspec`)
+  - FBSDKShareKit (from `https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKShareKit.podspec`)
   - IQKeyboardManager
+  - Mockingjay (~> 0.2)
+  - Nimble (~> 0.4)
+  - Quick (~> 0.3)
   - Realm (~> 0.91)
   - SwiftTask (~> 3.0)
   - TPKeyboardAvoiding (~> 1.2)
@@ -19,6 +52,15 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   Async:
     :git: https://github.com/duemunk/Async.git
+  FBSDKCoreKit:
+    :branch: dev
+    :podspec: https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKCoreKit.podspec
+  FBSDKLoginKit:
+    :branch: dev
+    :podspec: https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKLoginKit.podspec
+  FBSDKShareKit:
+    :branch: dev
+    :podspec: https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKShareKit.podspec
 
 CHECKOUT OPTIONS:
   Async:
@@ -28,9 +70,17 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: d765c5c1713aa64106b0228aaa600a1e6851f68d
   Async: aba7b48a4cd05dae27d1affce2f48f2ed61e75f9
+  Bolts: f8e2f94edbf9fec7bb8de5ecaaa3aa6b7de6f64e
+  FBSDKCoreKit: a69aaad8712c1de6b370c70ddd9db02eb1dcb16c
+  FBSDKLoginKit: d93d2e607b6387baacc2e8da3cee3673eacbecbd
+  FBSDKShareKit: 349d59da6a4d37e29d20030299089cfb0ac32a28
   IQKeyboardManager: 99df8006864663a4126a77b9a2f7ea70077eff31
+  Mockingjay: 8635bddf88b7c93833db67e1dc54b8ffe7efe921
+  Nimble: 49b7a7da8919f42823d37c6d68cc6d15a7009f32
+  Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
   Realm: b9c1fd9defa26aa7276ce938a8df52ec81f24528
   SwiftTask: 2f2c0a7db83def1d1e3bad518169be3f61c603f4
   TPKeyboardAvoiding: ee4dd35e3bb7bb64bfbda47e7cc9ba872ff10f77
+  URITemplate: 0dbf40f0e378eb9c6d04cc08e6101fb82d126dc3
 
 COCOAPODS: 0.36.3

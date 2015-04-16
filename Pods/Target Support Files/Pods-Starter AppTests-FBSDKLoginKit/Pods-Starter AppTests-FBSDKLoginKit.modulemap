@@ -1,0 +1,6 @@
+framework module FBSDKLoginKit {
+  umbrella header "Pods-Starter AppTests-FBSDKLoginKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

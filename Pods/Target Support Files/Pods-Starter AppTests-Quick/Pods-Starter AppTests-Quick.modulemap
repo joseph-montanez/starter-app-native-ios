@@ -1,0 +1,6 @@
+framework module Quick {
+  umbrella header "Pods-Starter AppTests-Quick-umbrella.h"
+
+  export *
+  module * { export * }
+}
