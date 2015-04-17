@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (1.2.0)
+  - Alamofire-SwiftyJSON (1.1.0)
   - Async (1.2.0)
   - Bolts (1.1.4)
   - FBSDKCoreKit (4.0.1):
@@ -32,11 +33,13 @@ PODS:
     - Realm/Headers (= 0.91.1)
   - Realm/Headers (0.91.1)
   - SwiftTask (3.0.0)
+  - SwiftyJSON (2.2.0)
   - TPKeyboardAvoiding (1.2.6)
   - URITemplate (1.2.0)
 
 DEPENDENCIES:
   - Alamofire (~> 1.2)
+  - Alamofire-SwiftyJSON (from `https://raw.githubusercontent.com/SwiftyJSON/Alamofire-SwiftyJSON/master/Alamofire-SwiftyJSON.podspec`)
   - Async (from `https://github.com/duemunk/Async.git`)
   - FBSDKCoreKit (from `https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKCoreKit.podspec`)
   - FBSDKLoginKit (from `https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKLoginKit.podspec`)
@@ -47,9 +50,13 @@ DEPENDENCIES:
   - Quick (~> 0.3)
   - Realm (~> 0.91)
   - SwiftTask (~> 3.0)
+  - SwiftyJSON (~> 2.2)
   - TPKeyboardAvoiding (~> 1.2)
 
 EXTERNAL SOURCES:
+  Alamofire-SwiftyJSON:
+    :branch: master
+    :podspec: https://raw.githubusercontent.com/SwiftyJSON/Alamofire-SwiftyJSON/master/Alamofire-SwiftyJSON.podspec
   Async:
     :git: https://github.com/duemunk/Async.git
   FBSDKCoreKit:
@@ -69,6 +76,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: d765c5c1713aa64106b0228aaa600a1e6851f68d
+  Alamofire-SwiftyJSON: 956259d7591d2b52f10e872bc14a4b89ec3743ff
   Async: aba7b48a4cd05dae27d1affce2f48f2ed61e75f9
   Bolts: f8e2f94edbf9fec7bb8de5ecaaa3aa6b7de6f64e
   FBSDKCoreKit: a69aaad8712c1de6b370c70ddd9db02eb1dcb16c
@@ -80,7 +88,8 @@ SPEC CHECKSUMS:
   Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
   Realm: b9c1fd9defa26aa7276ce938a8df52ec81f24528
   SwiftTask: 2f2c0a7db83def1d1e3bad518169be3f61c603f4
+  SwiftyJSON: 0b3e6c07af17ff745e77e8e9984097b55c956e5c
   TPKeyboardAvoiding: ee4dd35e3bb7bb64bfbda47e7cc9ba872ff10f77
   URITemplate: 0dbf40f0e378eb9c6d04cc08e6101fb82d126dc3
 
-COCOAPODS: 0.36.3
+COCOAPODS: 0.36.4

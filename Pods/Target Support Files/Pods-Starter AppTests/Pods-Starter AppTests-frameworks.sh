@@ -49,6 +49,7 @@ code_sign() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Alamofire.framework'
+  install_framework 'Alamofire_SwiftyJSON.framework'
   install_framework 'Async.framework'
   install_framework 'Bolts.framework'
   install_framework 'FBSDKCoreKit.framework'
@@ -59,10 +60,12 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Quick.framework'
   install_framework 'Realm.framework'
   install_framework 'SwiftTask.framework'
+  install_framework 'SwiftyJSON.framework'
   install_framework 'URITemplate.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Alamofire.framework'
+  install_framework 'Alamofire_SwiftyJSON.framework'
   install_framework 'Async.framework'
   install_framework 'Bolts.framework'
   install_framework 'FBSDKCoreKit.framework'
@@ -73,5 +76,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Quick.framework'
   install_framework 'Realm.framework'
   install_framework 'SwiftTask.framework'
+  install_framework 'SwiftyJSON.framework'
   install_framework 'URITemplate.framework'
 fi

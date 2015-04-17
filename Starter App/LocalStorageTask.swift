@@ -29,13 +29,27 @@ import Foundation
 import SwiftTask
 import Async
 import Alamofire
+import SwiftyJSON
+//import Alamofire_SwiftyJSON
 
-class LocalStorageTask {
-    typealias LSTask = SwiftTask.Task<Float, LocalStorage, NSError>
+public class LocalStorageTask {
+    public typealias LSTask = SwiftTask.Task<Float, LocalStorage, NSError>
     
     var task: LSTask?
     
-    func exec() -> LSTask {
+    public init () {
+        
+    }
+    
+    public func wrap(store: LocalStorage) -> LSTask {
+        return LSTask { progress, fulfill, reject, configure in
+            fulfill(store)
+            return
+        }
+        
+    }
+    
+    public func exec() -> LSTask {
         //-- Lets start to process user auth as soon as possible!
         let task = LocalStorageTask()
         //-- Get storage from disk
@@ -48,7 +62,7 @@ class LocalStorageTask {
             .then(task.isAuthorized)
     }
     
-    func getStorage() -> LSTask {
+    public func getStorage() -> LSTask {
         return LSTask { progress, fulfill, reject, configure in
             Async.background() {
                 fulfill(LocalStorage.loadFromDisk())
@@ -57,7 +71,7 @@ class LocalStorageTask {
         }
     }
     
-    func checkUUID(result: LocalStorage?, (error: NSError?, isCancelled: Bool)?) -> LSTask {
+    public func checkUUID(result: LocalStorage?, (error: NSError?, isCancelled: Bool)?) -> LSTask {
         return LSTask { progress, fulfill, reject, configure in
             Async.background() {
                 if let store = result {
@@ -77,7 +91,7 @@ class LocalStorageTask {
         }
     }
     
-    func getToken(result: LocalStorage?, (error: NSError?, isCancelled: Bool)?) -> LSTask {
+    public func getToken(result: LocalStorage?, (error: NSError?, isCancelled: Bool)?) -> LSTask {
         return LSTask { progress, fulfill, reject, configure in
             Async.background() {
                 if let store = result {
@@ -85,16 +99,31 @@ class LocalStorageTask {
                         //-- If there is no token we need to generate one
                         let req = Alamofire.request(TokenApi.Generate(store.uuid))
                         
-                        req.responseJSON { (request, response, JSON, error) in
-                            if let data = JSON as? [String:AnyObject],
-                                let success = data["success"] as? Bool,
-                                let token = data["token"] as? String {
-                                store.token = token
-                                fulfill(store)
+                        req.responseJSON { (request, response, nullableJson, error) -> Void in
+                            if error != nil {
+                                reject(error!)
+                            } else if let json: AnyObject = nullableJson {
+                                let data = JSON(json)
+                                println(data)
+                                if let success = data["success"].bool,
+                                    let token = data["token"].string {
+                                        store.token = token
+                                        fulfill(store)
+                                } else {
+                                    let domain: String
+                                    if let message = data["message"].string {
+                                        domain = message
+                                    } else {
+                                        domain = "Unable to generate token from server"
+                                    }
+                                    reject(NSError(domain: domain, code: 1003,
+                                        userInfo: ["file": __FILE__, "line": __LINE__]))
+                                }
                             } else {
                                 reject(NSError(domain: "Unable to generate token from server", code: 1003,
                                     userInfo: ["file": __FILE__, "line": __LINE__]))
                             }
+                            return
                         }
                     } else {
                         fulfill(store)
@@ -110,7 +139,7 @@ class LocalStorageTask {
         }
     }
     
-    func isAuthorized(result: LocalStorage?, (error: NSError?, isCancelled: Bool)?) -> LSTask {
+    public func isAuthorized(result: LocalStorage?, (error: NSError?, isCancelled: Bool)?) -> LSTask {
         return LSTask { progress, fulfill, reject, configure in
             Async.background() {
                 if let store = result where count(store.token) > 0 {

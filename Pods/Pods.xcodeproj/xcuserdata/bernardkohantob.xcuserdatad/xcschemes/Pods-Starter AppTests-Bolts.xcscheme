@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "530450122F16DEF0652E33F5"
+               BlueprintIdentifier = "BD9E9B8F1FC468D0EE5FB318"
                BuildableName = "Bolts.framework"
                BlueprintName = "Pods-Starter AppTests-Bolts"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "356319663CE1CCE3D17A059F"
+               BlueprintIdentifier = "C8BB5F44A0006877913444C2"
                BuildableName = "Nimble.framework"
                BlueprintName = "Pods-Starter AppTests-Nimble"
                ReferencedContainer = "container:Pods.xcodeproj">

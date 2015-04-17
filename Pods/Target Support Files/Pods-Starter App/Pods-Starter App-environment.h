@@ -12,6 +12,12 @@
 #define COCOAPODS_VERSION_MINOR_Alamofire 2
 #define COCOAPODS_VERSION_PATCH_Alamofire 0
 
+// Alamofire-SwiftyJSON
+#define COCOAPODS_POD_AVAILABLE_Alamofire_SwiftyJSON
+#define COCOAPODS_VERSION_MAJOR_Alamofire_SwiftyJSON 1
+#define COCOAPODS_VERSION_MINOR_Alamofire_SwiftyJSON 1
+#define COCOAPODS_VERSION_PATCH_Alamofire_SwiftyJSON 0
+
 // Async
 #define COCOAPODS_POD_AVAILABLE_Async
 #define COCOAPODS_VERSION_MAJOR_Async 1
@@ -77,6 +83,12 @@
 #define COCOAPODS_VERSION_MAJOR_SwiftTask 3
 #define COCOAPODS_VERSION_MINOR_SwiftTask 0
 #define COCOAPODS_VERSION_PATCH_SwiftTask 0
+
+// SwiftyJSON
+#define COCOAPODS_POD_AVAILABLE_SwiftyJSON
+#define COCOAPODS_VERSION_MAJOR_SwiftyJSON 2
+#define COCOAPODS_VERSION_MINOR_SwiftyJSON 2
+#define COCOAPODS_VERSION_PATCH_SwiftyJSON 0
 
 // TPKeyboardAvoiding
 #define COCOAPODS_POD_AVAILABLE_TPKeyboardAvoiding

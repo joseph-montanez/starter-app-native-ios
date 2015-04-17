@@ -2,8 +2,27 @@
 //  LocalStorageTaskTests.swift
 //  Starter App
 //
-//  Created by Bernard Kohantob on 4/16/15.
-//  Copyright (c) 2015 Comentum. All rights reserved.
+//    The MIT License (MIT)
+//
+//    Copyright (c) 2015 Joseph Montanez
+//
+//    Permission is hereby granted, free of charge, to any person obtaining a copy
+//    of this software and associated documentation files (the "Software"), to deal
+//    in the Software without restriction, including without limitation the rights
+//    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//    copies of the Software, and to permit persons to whom the Software is
+//    furnished to do so, subject to the following conditions:
+//
+//    The above copyright notice and this permission notice shall be included in
+//    all copies or substantial portions of the Software.
+//
+//    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//    THE SOFTWARE.
 //
 
 
@@ -12,84 +31,47 @@ import Quick
 import Nimble
 import Mockingjay
 import Alamofire
+import SwiftyJSON
 
 class LocalStorageTaskSpec: QuickSpec {
     override func spec() {
         
         beforeEach {
-            let body = [ "success": true, "token": "123" ]
-            self.stub(everything, builder: { (request:NSURLRequest) -> Response in
-                if let body = request.HTTPBody {
-                    let n = NSString(data: body, encoding: NSUTF8StringEncoding)
-                    println(n)
-                } else {
-                    println("no http body")
-                }
-                if let stream = request.HTTPBodyStream {
-                    var data = NSMutableData()
-                    var buffer = [UInt8](count: 4096, repeatedValue: 0)
-                    stream.open()
-                    while stream.hasBytesAvailable {
-                        let length = stream.read(&buffer, maxLength: 4096)
-                        if length == 0 {
-                            break
-                        } else {
-                            data.appendBytes(&buffer, length: length)
-                        }
-                    }
-                    println("stream \(NSString(data: data, encoding: NSUTF8StringEncoding)!)")
-                } else {
-                    println("no stream")
-                }
+//            self.stub(everything, builder: { (request:NSURLRequest) -> Response in
+//                println(request.URL?.path)
+//                let response = NSHTTPURLResponse(URL: request.URL!, statusCode: 200, HTTPVersion: nil, headerFields: nil)!
+//                let data:NSData? = nil
+//                return .Success(response, data)
+//            })
+            self.stub(uri("/api/v1/token/generate"), builder: { (request:NSURLRequest) -> Response in
+                let response = jsonGoodResponse(request)
                 
-                switch NSURLProtocol.propertyForKey("uuid", inRequest: request) {
-                case (let uuid as String):
-                    println("uuid string \(uuid)")
-                    break
-                case (let uuid as NSData):
-                    println("uuid nsdata \(uuid)")
-                    break
-                case (let uuid as NSString):
-                    println("uuid nsdata \(uuid)")
-                    break
-                default:
-                    break
+                if let data = fromStream(request),
+                    let uuid = JSON(data: data)["uuid"].string where count(uuid) > 0 {
+                    return .Success(response, JSON(["message": "123", "success": true]).rawData())
+                } else {
+                    return .Success(response, JSON([
+                        "message": "A UUID is required to generate a token",
+                        "success": false
+                        ]).rawData())
                 }
-                let response = NSHTTPURLResponse(URL: request.URL!, statusCode: 200, HTTPVersion: nil, headerFields: ["Content-Type": "application/json"])!
-                let data:NSData? = "{\"success\": true, \"token\": \"123\"}".dataUsingEncoding(NSUTF8StringEncoding)
-                return .Success(response, data)
-            })
-            
-
-            self.stub(http(.POST, "/token/generate"), builder: { (request:NSURLRequest) -> Response in
-                let response = NSHTTPURLResponse(URL: request.URL!, statusCode: 200, HTTPVersion: nil, headerFields: ["Content-Type": "application/json"])!
-                let data:NSData? = "{\"success\": true, \"token\": \"123\"}".dataUsingEncoding(NSUTF8StringEncoding)
-                return .Success(response, data)
             })
             
         }
         
-        describe("peeling the banana") {
-            it("is edible") {
-                let reqUrl = TokenApi.Generate("abc")
-                let path = reqUrl.path
-                let req = Alamofire.request(reqUrl)
-                
+        describe("the local storage") {
+            it("something useful") {
                 var foo: LocalStorage = LocalStorage()
                 
-                req.responseJSON { (request, response, JSON, error) in
-                    if let data = JSON as? [String:AnyObject],
-                        let success = data["success"] as? Bool,
-                        let token = data["token"] as? String {
-                            println("token \(token)")
-                            foo.token = token
-                    } else {
-                        foo.token = ""
-                        println("Unable to generate token from server \(JSON)")
-                    }
+                let job = LocalStorageTask()
+                let task = job.wrap(foo)
+                task.then(job.getToken).success { store -> Void in
+                    println("success! \(store.token)")
+                }.failure { (error: NSError?, isCancelled: Bool) -> Void in
+                        println("failure! \(error)")
                 }
                 
-                expect{foo.token}.toEventually(equal("123"), timeout: 1)
+                expect{foo.token}.toEventually(equal("123"), timeout: 3)
             }
         }
     }
