@@ -46,7 +46,6 @@ public class LocalStorageTask {
             fulfill(store)
             return
         }
-        
     }
     
     public func exec() -> LSTask {
@@ -61,109 +60,91 @@ public class LocalStorageTask {
             //-- Check to see if token is authorized
             .then(task.isAuthorized)
     }
-    
+        
     public func getStorage() -> LSTask {
-        return LSTask { progress, fulfill, reject, configure in
-            Async.background() {
-                fulfill(LocalStorage.loadFromDisk())
-            }
+        return AsyncTask.background { (_, fulfill: LocalStorage -> Void, _, _) in
+            fulfill(LocalStorage.loadFromDisk())
             return
         }
     }
     
-    public func checkUUID(result: LocalStorage?, (error: NSError?, isCancelled: Bool)?) -> LSTask {
-        return LSTask { progress, fulfill, reject, configure in
-            Async.background() {
-                if let store = result {
-                    //-- Let see if the UUID if set!
-                    if count(store.uuid) == 0 {
-                        store.generateUUID()
-                    }
-                    
-                    fulfill(store)
-                } else {
-                    let error = NSError(domain: "No local storage to perform work on", code: 1001,
-                        userInfo: ["file": __FILE__, "line": __LINE__])
-                    reject(error)
-                }
-            }
-            return
-        }
-    }
-    
-    public func getToken(result: LocalStorage?, (error: NSError?, isCancelled: Bool)?) -> LSTask {
-        return LSTask { progress, fulfill, reject, configure in
-            Async.background() {
-                if let store = result {
-                    if count(store.token) == 0 {
-                        //-- If there is no token we need to generate one
-                        let req = Alamofire.request(TokenApi.Generate(store.uuid))
-                        
-                        req.responseJSON { (request, response, nullableJson, error) -> Void in
-                            if error != nil {
-                                reject(error!)
-                            } else if let json: AnyObject = nullableJson {
-                                let data = JSON(json)
-                                println(data)
-                                if let success = data["success"].bool,
-                                    let token = data["token"].string {
-                                        store.token = token
-                                        fulfill(store)
-                                } else {
-                                    let domain: String
-                                    if let message = data["message"].string {
-                                        domain = message
-                                    } else {
-                                        domain = "Unable to generate token from server"
-                                    }
-                                    reject(NSError(domain: domain, code: 1003,
-                                        userInfo: ["file": __FILE__, "line": __LINE__]))
-                                }
-                            } else {
-                                reject(NSError(domain: "Unable to generate token from server", code: 1003,
-                                    userInfo: ["file": __FILE__, "line": __LINE__]))
-                            }
-                            return
-                        }
-                    } else {
-                        fulfill(store)
-                    }
-                } else {
-                    reject(NSError(domain: "No local storage to add token too", code: 1002,
-                        userInfo: ["file": __FILE__, "line": __LINE__]))
+    public func checkUUID(result: LocalStorage?, errorInfo: (error: NSError?, isCancelled: Bool)?) -> LSTask {
+        return AsyncTask.background { (_, fulfill: LocalStorage -> Void, reject, _) in
+            if let store = result {
+                //-- Let see if the UUID if set!
+                if count(store.uuid) == 0 {
+                    store.generateUUID()
                 }
                 
-                return
+                fulfill(store)
+            } else {
+                reject(errorInfo?.0 ?? NSError(domain: "No local storage to perform work on", code: 1001,
+                    userInfo: ["file": __FILE__, "line": __LINE__]))
             }
             return
         }
     }
     
-    public func isAuthorized(result: LocalStorage?, (error: NSError?, isCancelled: Bool)?) -> LSTask {
-        return LSTask { progress, fulfill, reject, configure in
-            Async.background() {
-                if let store = result where count(store.token) > 0 {
-                    //-- If there is no token we need to generate one
-                    let req = Alamofire.request(TokenApi.Authenticate(store.uuid))
-                    
-                    req.responseJSON { (request, response, JSON, error) in
-                        if let data = JSON as? [String:AnyObject],
-                            let success = data["success"] as? Bool,
-                            let authorized = data["authorized"] as? Bool
-                            where authorized == true {
+    public func getToken(result: LocalStorage?, errorInfo: (error: NSError?, isCancelled: Bool)?) -> LSTask {
+        return AsyncTask.background { (_, fulfill: LocalStorage -> Void, reject, _) in
+            if let store = result where count(store.token) > 0 {
+                fulfill(store)
+            } else if let store = result where count(store.token) == 0 {
+                //-- If there is no token we need to generate one
+                let req = Alamofire.request(TokenApi.Generate(store.uuid))
+                
+                req.responseJSON { (request, response, nullableJson, error) -> Void in
+                    let defaultError = NSError(domain: "Unable to generate token from server", code: 1003,
+                        userInfo: ["file": __FILE__, "line": __LINE__])
+                    if error != nil {
+                        reject(error ?? defaultError)
+                    } else if let json: AnyObject = nullableJson {
+                        let data = JSON(json)
+                        if let success = data["success"].bool,
+                            let token = data["token"].string {
+                                store.token = token
                                 fulfill(store)
                         } else {
-                            reject(NSError(domain: "Not authorized", code: Api.UNATHORIZED,
+                            let domain = data["message"].string ?? "Unable to generate token from server"
+                            reject(NSError(domain: domain, code: 1003,
                                 userInfo: ["file": __FILE__, "line": __LINE__]))
                         }
+                    } else {
+                        reject(defaultError)
                     }
-                } else {
-                    reject(NSError(domain: "No token to perform authorization on", code: 1004,
-                        userInfo: ["file": __FILE__, "line": __LINE__]))
+                    return
                 }
-
-                return
+            } else {
+                reject(errorInfo?.0 ?? NSError(domain: "No local storage to add token too", code: 1002,
+                    userInfo: ["file": __FILE__, "line": __LINE__]))
             }
+            
+            return
+        }
+    }
+    
+    public func isAuthorized(result: LocalStorage?, errorInfo: (error: NSError?, isCancelled: Bool)?) -> LSTask {
+        return AsyncTask.background { (_, fulfill: LocalStorage -> Void, reject, _) in
+            if let store = result where count(store.token) > 0 {
+                //-- If there is no token we need to generate one
+                let req = Alamofire.request(TokenApi.Authenticate(store.uuid))
+                
+                req.responseJSON { (request, response, JSON, error) in
+                    if let data = JSON as? [String:AnyObject],
+                        let success = data["success"] as? Bool,
+                        let authorized = data["authorized"] as? Bool
+                        where authorized == true {
+                            fulfill(store)
+                    } else {
+                        reject(NSError(domain: "Not authorized", code: Api.UNATHORIZED,
+                            userInfo: ["file": __FILE__, "line": __LINE__]))
+                    }
+                }
+            } else {
+                reject(errorInfo?.0 ?? NSError(domain: "No token to perform authorization on", code: 1004,
+                    userInfo: ["file": __FILE__, "line": __LINE__]))
+            }
+
             return
         }
     }

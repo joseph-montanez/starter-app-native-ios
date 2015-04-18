@@ -18,6 +18,7 @@
 		F41E714B1AD952B70005A0FE /* SharedMemory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E714A1AD952B70005A0FE /* SharedMemory.swift */; };
 		F44C26581AD7BAC9003BD6B1 /* KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44C26571AD7BAC9003BD6B1 /* KeyboardNotification.swift */; };
 		F45EFCD31AE0CB05006BF2DB /* Http.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45EFCD21AE0CB05006BF2DB /* Http.swift */; };
+		F46479CF1AE2A36E00CC1F39 /* AsyncTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46479CE1AE2A36E00CC1F39 /* AsyncTask.swift */; };
 		F46DA01C1AD3EA9D0088E2DB /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46DA01B1AD3EA9D0088E2DB /* Api.swift */; };
 		F47E757C1AD27DD80047C968 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E757B1AD27DD80047C968 /* LoginController.swift */; };
 		F48646231ADFAB4D00A89FD8 /* FirstCustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48646211ADFAB4D00A89FD8 /* FirstCustomSegue.swift */; };
@@ -62,6 +63,7 @@
 		F41E714A1AD952B70005A0FE /* SharedMemory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedMemory.swift; sourceTree = "<group>"; };
 		F44C26571AD7BAC9003BD6B1 /* KeyboardNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardNotification.swift; sourceTree = "<group>"; };
 		F45EFCD21AE0CB05006BF2DB /* Http.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Http.swift; sourceTree = "<group>"; };
+		F46479CE1AE2A36E00CC1F39 /* AsyncTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncTask.swift; sourceTree = "<group>"; };
 		F46DA01B1AD3EA9D0088E2DB /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		F46DA0231AD3F11F0088E2DB /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		F47E757B1AD27DD80047C968 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				F46DA01B1AD3EA9D0088E2DB /* Api.swift */,
 				F44C26571AD7BAC9003BD6B1 /* KeyboardNotification.swift */,
 				F41E714A1AD952B70005A0FE /* SharedMemory.swift */,
+				F46479CE1AE2A36E00CC1F39 /* AsyncTask.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 			files = (
 				F491E1C71AD2577F0087377E /* ViewController.swift in Sources */,
 				F41E71471AD93E240005A0FE /* LocalStorage.swift in Sources */,
+				F46479CF1AE2A36E00CC1F39 /* AsyncTask.swift in Sources */,
 				F41E71451AD93D8E0005A0FE /* RLMSupport.swift in Sources */,
 				F47E757C1AD27DD80047C968 /* LoginController.swift in Sources */,
 				F41E71491AD93F8C0005A0FE /* HomeController.swift in Sources */,
