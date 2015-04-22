@@ -30,7 +30,7 @@ import Foundation
 import Async
 import SwiftTask
 
-class AsyncTask {
+public class AsyncTask {
     public static func background<T>(job: (((Float -> Void), (T -> Void), (NSError -> Void), SwiftTask.TaskConfiguration) -> Void)) -> SwiftTask.Task<Float, T, NSError> {
         return SwiftTask.Task<Float, T, NSError> { (progress: (Float -> Void), fulfill: (T -> Void), reject: (NSError -> Void), configure: SwiftTask.TaskConfiguration) -> Void in
             Async.background {

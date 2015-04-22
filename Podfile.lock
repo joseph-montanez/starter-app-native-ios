@@ -1,6 +1,5 @@
 PODS:
-  - Alamofire (1.2.0)
-  - Alamofire-SwiftyJSON (1.1.0)
+  - Alamofire (1.2.1)
   - Async (1.2.0)
   - Bolts (1.1.4)
   - FBSDKCoreKit (4.0.1):
@@ -16,7 +15,7 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.0.1):
     - FBSDKCoreKit
-  - IQKeyboardManager (3.2.2)
+  - IQKeyboardManager (3.2.3)
   - Mockingjay (0.2.0):
     - Mockingjay/Core (= 0.2.0)
     - Mockingjay/Session (= 0.2.0)
@@ -29,9 +28,9 @@ PODS:
     - Mockingjay/Core
   - Nimble (0.4.2)
   - Quick (0.3.1)
-  - Realm (0.91.1):
-    - Realm/Headers (= 0.91.1)
-  - Realm/Headers (0.91.1)
+  - Realm (0.91.3):
+    - Realm/Headers (= 0.91.3)
+  - Realm/Headers (0.91.3)
   - SwiftTask (3.0.0)
   - SwiftyJSON (2.2.0)
   - TPKeyboardAvoiding (1.2.6)
@@ -39,7 +38,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 1.2)
-  - Alamofire-SwiftyJSON (from `https://raw.githubusercontent.com/SwiftyJSON/Alamofire-SwiftyJSON/master/Alamofire-SwiftyJSON.podspec`)
   - Async (from `https://github.com/duemunk/Async.git`)
   - FBSDKCoreKit (from `https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKCoreKit.podspec`)
   - FBSDKLoginKit (from `https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKLoginKit.podspec`)
@@ -54,9 +52,6 @@ DEPENDENCIES:
   - TPKeyboardAvoiding (~> 1.2)
 
 EXTERNAL SOURCES:
-  Alamofire-SwiftyJSON:
-    :branch: master
-    :podspec: https://raw.githubusercontent.com/SwiftyJSON/Alamofire-SwiftyJSON/master/Alamofire-SwiftyJSON.podspec
   Async:
     :git: https://github.com/duemunk/Async.git
   FBSDKCoreKit:
@@ -71,22 +66,21 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Async:
-    :commit: 2f0c5b69e3ff0e41c9391016b7855cd319000515
+    :commit: ceb4051b248787cc860dd0e7169b1386e29345cf
     :git: https://github.com/duemunk/Async.git
 
 SPEC CHECKSUMS:
-  Alamofire: d765c5c1713aa64106b0228aaa600a1e6851f68d
-  Alamofire-SwiftyJSON: 956259d7591d2b52f10e872bc14a4b89ec3743ff
+  Alamofire: 1acfdf179aff68b41a48dff70c1ac7fa263e2bcb
   Async: aba7b48a4cd05dae27d1affce2f48f2ed61e75f9
   Bolts: f8e2f94edbf9fec7bb8de5ecaaa3aa6b7de6f64e
   FBSDKCoreKit: a69aaad8712c1de6b370c70ddd9db02eb1dcb16c
   FBSDKLoginKit: d93d2e607b6387baacc2e8da3cee3673eacbecbd
   FBSDKShareKit: 349d59da6a4d37e29d20030299089cfb0ac32a28
-  IQKeyboardManager: 99df8006864663a4126a77b9a2f7ea70077eff31
+  IQKeyboardManager: 6ca5c54e3776eb54af4c7caf515833f3cd761d59
   Mockingjay: 8635bddf88b7c93833db67e1dc54b8ffe7efe921
   Nimble: 49b7a7da8919f42823d37c6d68cc6d15a7009f32
   Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
-  Realm: b9c1fd9defa26aa7276ce938a8df52ec81f24528
+  Realm: 4bfdac6f0f3170a3947c7196e2e9a2e49c943719
   SwiftTask: 2f2c0a7db83def1d1e3bad518169be3f61c603f4
   SwiftyJSON: 0b3e6c07af17ff745e77e8e9984097b55c956e5c
   TPKeyboardAvoiding: ee4dd35e3bb7bb64bfbda47e7cc9ba872ff10f77

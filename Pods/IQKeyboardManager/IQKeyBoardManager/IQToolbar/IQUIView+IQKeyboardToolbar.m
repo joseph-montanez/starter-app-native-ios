@@ -1,7 +1,7 @@
 //
 //  UIView+IQToolbar.m
 // https://github.com/hackiftekhar/IQKeyboardManager
-// Copyright (c) 2013-14 Iftekhar Qurashi.
+// Copyright (c) 2013-15 Iftekhar Qurashi.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -33,14 +33,12 @@
 #import <UIKit/UILabel.h>
 #import <objc/runtime.h>
 
-IQ_LoadCategory(IQUIViewToolbar)
-
 /*UIKeyboardToolbar Category implementation*/
 @implementation UIView (IQToolbarAddition)
 
 -(void)setShouldHideTitle:(BOOL)shouldHideTitle
 {
-    objc_setAssociatedObject(self, @selector(shouldHideTitle), @(shouldHideTitle), OBJC_ASSOCIATION_ASSIGN);
+    objc_setAssociatedObject(self, @selector(shouldHideTitle), [NSNumber numberWithBool:shouldHideTitle], OBJC_ASSOCIATION_ASSIGN);
 }
 
 -(BOOL)shouldHideTitle
@@ -110,6 +108,8 @@ IQ_LoadCategory(IQUIViewToolbar)
 }
 
 
+#pragma mark - Toolbar on UIKeyboard
+
 - (void)addRightButtonOnKeyboardWithText:(NSString*)text target:(id)target action:(SEL)action titleText:(NSString*)titleText
 {
     //  If can't set InputAccessoryView. Then return
@@ -117,7 +117,7 @@ IQ_LoadCategory(IQUIViewToolbar)
     
     //  Creating a toolBar for keyboard
     IQToolbar *toolbar = [[IQToolbar alloc] init];
-    if ([self respondsToSelector:@selector(keyboardAppearance)])
+    if (IQ_IS_IOS7_OR_GREATER && [self respondsToSelector:@selector(keyboardAppearance)])
     {
         switch ([(UITextField*)self keyboardAppearance])
         {
@@ -143,10 +143,10 @@ IQ_LoadCategory(IQUIViewToolbar)
         else
         {
             /*
-             57 done button frame.
-             8 distance maintenance
+             64 done button frame.
+             16 distance maintenance
              */
-            buttonFrame = CGRectMake(0, 0, toolbar.frame.size.width-57.0-8, 44);
+            buttonFrame = CGRectMake(0, 0, toolbar.frame.size.width-64.0-16, 44);
         }
         
         IQTitleBarButtonItem *title = [[IQTitleBarButtonItem alloc] initWithFrame:buttonFrame title:titleText];
@@ -190,7 +190,7 @@ IQ_LoadCategory(IQUIViewToolbar)
     
     //  Creating a toolBar for keyboard
     IQToolbar *toolbar = [[IQToolbar alloc] init];
-    if ([self respondsToSelector:@selector(keyboardAppearance)])
+    if (IQ_IS_IOS7_OR_GREATER && [self respondsToSelector:@selector(keyboardAppearance)])
     {
         switch ([(UITextField*)self keyboardAppearance])
         {
@@ -216,10 +216,10 @@ IQ_LoadCategory(IQUIViewToolbar)
         else
         {
             /*
-             57 done button frame.
-             8 distance maintenance
+             64 done button frame.
+             16 distance maintenance
              */
-            buttonFrame = CGRectMake(0, 0, toolbar.frame.size.width-57.0-8, 44);
+            buttonFrame = CGRectMake(0, 0, toolbar.frame.size.width-64.0-16, 44);
         }
         
         IQTitleBarButtonItem *title = [[IQTitleBarButtonItem alloc] initWithFrame:buttonFrame title:titleText];
@@ -241,8 +241,6 @@ IQ_LoadCategory(IQUIViewToolbar)
     [(UITextField*)self setInputAccessoryView:toolbar];
 }
 
-
-#pragma mark - Toolbar on UIKeyboard
 -(void)addDoneOnKeyboardWithTarget:(id)target action:(SEL)action shouldShowPlaceholder:(BOOL)showPlaceholder
 {
     NSString *title;
@@ -264,7 +262,7 @@ IQ_LoadCategory(IQUIViewToolbar)
     
     //  Creating a toolBar for keyboard
     IQToolbar *toolbar = [[IQToolbar alloc] init];
-    if ([self respondsToSelector:@selector(keyboardAppearance)])
+    if (IQ_IS_IOS7_OR_GREATER && [self respondsToSelector:@selector(keyboardAppearance)])
     {
         switch ([(UITextField*)self keyboardAppearance])
         {
@@ -342,7 +340,7 @@ IQ_LoadCategory(IQUIViewToolbar)
     
     //  Creating a toolBar for keyboard
     IQToolbar *toolbar = [[IQToolbar alloc] init];
-    if ([self respondsToSelector:@selector(keyboardAppearance)])
+    if (IQ_IS_IOS7_OR_GREATER && [self respondsToSelector:@selector(keyboardAppearance)])
     {
         switch ([(UITextField*)self keyboardAppearance])
         {
@@ -420,7 +418,7 @@ IQ_LoadCategory(IQUIViewToolbar)
     
     //  Creating a toolBar for phoneNumber keyboard
     IQToolbar *toolbar = [[IQToolbar alloc] init];
-    if ([self respondsToSelector:@selector(keyboardAppearance)])
+    if (IQ_IS_IOS7_OR_GREATER && [self respondsToSelector:@selector(keyboardAppearance)])
     {
         switch ([(UITextField*)self keyboardAppearance])
         {
@@ -442,6 +440,9 @@ IQ_LoadCategory(IQUIViewToolbar)
         UIImage *imageLeftArrow;
         UIImage *imageRightArrow;
         
+        //Xcode Compilation check
+#ifdef NSFoundationVersionNumber_iOS_7_1
+        
         if (IQ_IS_IOS8_OR_GREATER)
         {
             // Get the top level "bundle" which may actually be the framework
@@ -458,6 +459,7 @@ IQ_LoadCategory(IQUIViewToolbar)
             imageRightArrow = [UIImage imageNamed:@"IQButtonBarArrowRight" inBundle:resourcesBundle compatibleWithTraitCollection:nil];
         }
         else
+#endif
         {
             imageLeftArrow = [UIImage imageNamed:@"IQKeyboardManager.bundle/IQButtonBarArrowLeft"];
             imageRightArrow = [UIImage imageNamed:@"IQKeyboardManager.bundle/IQButtonBarArrowRight"];
@@ -499,10 +501,10 @@ IQ_LoadCategory(IQUIViewToolbar)
         {
             /*
              135 next/previous maximum x.
-             57 done button frame.
+             64 done button frame.
              8+8 distance maintenance
              */
-            buttonFrame = CGRectMake(0, 0, toolbar.frame.size.width-135-57.0-16, 44);
+            buttonFrame = CGRectMake(0, 0, toolbar.frame.size.width-135-64.0-16, 44);
         }
         
         IQTitleBarButtonItem *title = [[IQTitleBarButtonItem alloc] initWithFrame:buttonFrame title:titleText];
@@ -542,7 +544,7 @@ IQ_LoadCategory(IQUIViewToolbar)
     
     //  Creating a toolBar for phoneNumber keyboard
     IQToolbar *toolbar = [[IQToolbar alloc] init];
-    if ([self respondsToSelector:@selector(keyboardAppearance)])
+    if (IQ_IS_IOS7_OR_GREATER && [self respondsToSelector:@selector(keyboardAppearance)])
     {
         switch ([(UITextField*)self keyboardAppearance])
         {
@@ -564,6 +566,9 @@ IQ_LoadCategory(IQUIViewToolbar)
         UIImage *imageLeftArrow;
         UIImage *imageRightArrow;
         
+        //Xcode Compilation check
+#ifdef NSFoundationVersionNumber_iOS_7_1
+        
         if (IQ_IS_IOS8_OR_GREATER)
         {
             // Get the top level "bundle" which may actually be the framework
@@ -580,6 +585,7 @@ IQ_LoadCategory(IQUIViewToolbar)
             imageRightArrow = [UIImage imageNamed:@"IQButtonBarArrowRight" inBundle:resourcesBundle compatibleWithTraitCollection:nil];
         }
         else
+#endif
         {
             imageLeftArrow = [UIImage imageNamed:@"IQKeyboardManager.bundle/IQButtonBarArrowLeft"];
             imageRightArrow = [UIImage imageNamed:@"IQKeyboardManager.bundle/IQButtonBarArrowRight"];
@@ -621,10 +627,10 @@ IQ_LoadCategory(IQUIViewToolbar)
         {
             /*
              135 next/previous maximum x.
-             57 done button frame.
+             64 done button frame.
              8+8 distance maintenance
              */
-            buttonFrame = CGRectMake(0, 0, toolbar.frame.size.width-135-57.0-16, 44);
+            buttonFrame = CGRectMake(0, 0, toolbar.frame.size.width-135-64.0-16, 44);
         }
         
         IQTitleBarButtonItem *title = [[IQTitleBarButtonItem alloc] initWithFrame:buttonFrame title:titleText];
@@ -668,8 +674,8 @@ IQ_LoadCategory(IQUIViewToolbar)
 		if (IQ_IS_IOS7_OR_GREATER && [[inputAccessoryView items] count]>3)
 		{
 			//  Getting first item from inputAccessoryView.
-			IQBarButtonItem *prevButton = (IQBarButtonItem*)[inputAccessoryView items][0];
-			IQBarButtonItem *nextButton = (IQBarButtonItem*)[inputAccessoryView items][2];
+			IQBarButtonItem *prevButton = (IQBarButtonItem*)[[inputAccessoryView items] objectAtIndex:0];
+			IQBarButtonItem *nextButton = (IQBarButtonItem*)[[inputAccessoryView items] objectAtIndex:2];
 			
 			//  If it is UIBarButtonItem and it's customView is not nil.
 			if ([prevButton isKindOfClass:[IQBarButtonItem class]] && [nextButton isKindOfClass:[IQBarButtonItem class]])
@@ -683,7 +689,7 @@ IQ_LoadCategory(IQUIViewToolbar)
 		else
 		{
 			//  Getting first item from inputAccessoryView.
-			IQBarButtonItem *barButtonItem = (IQBarButtonItem*)[inputAccessoryView items][0];
+			IQBarButtonItem *barButtonItem = (IQBarButtonItem*)[[inputAccessoryView items] objectAtIndex:0];
 			
 			//  If it is IQBarButtonItem and it's customView is not nil.
 			if ([barButtonItem isKindOfClass:[IQBarButtonItem class]] && [barButtonItem customView] != nil)

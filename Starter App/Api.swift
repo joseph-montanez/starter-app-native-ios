@@ -29,9 +29,15 @@
 import Foundation
 import Alamofire
 
-class Api {
+public class Api {
     static let UNATHORIZED = 1005
     static let endPoint = "http://localhost:8000/api/v1"
+    
+    public enum Request {
+        case TokenGenerate
+        case TokenAuthorize
+        case TokenValidate
+    }
     
     
     func parseJson(jsonData: NSData) -> NSArray {

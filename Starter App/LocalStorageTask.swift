@@ -91,7 +91,7 @@ public class LocalStorageTask {
                 fulfill(store)
             } else if let store = result where count(store.token) == 0 {
                 //-- If there is no token we need to generate one
-                let req = Alamofire.request(TokenApi.Generate(store.uuid))
+                let req = Alamofire.request(TokenApi().generate(store.uuid))
                 
                 req.responseJSON { (request, response, nullableJson, error) -> Void in
                     let defaultError = NSError(domain: "Unable to generate token from server", code: 1003,
@@ -127,7 +127,7 @@ public class LocalStorageTask {
         return AsyncTask.background { (_, fulfill: LocalStorage -> Void, reject, _) in
             if let store = result where count(store.token) > 0 {
                 //-- If there is no token we need to generate one
-                let req = Alamofire.request(TokenApi.Authenticate(store.uuid))
+                let req = Alamofire.request(TokenApi().authenticate(store.uuid))
                 
                 req.responseJSON { (request, response, JSON, error) in
                     if let data = JSON as? [String:AnyObject],

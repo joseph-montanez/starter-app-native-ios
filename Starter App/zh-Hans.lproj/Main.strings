@@ -1,0 +1,48 @@
+
+/* Class = "UILabel"; text = "Starter App"; ObjectID = "0uQ-GX-0NH"; */
+"0uQ-GX-0NH.text" = "入门应用";
+
+/* Class = "UITextField"; placeholder = "Password Confirm"; ObjectID = "3Jt-vp-hxa"; */
+"3Jt-vp-hxa.placeholder" = "密码确认";
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "7Oh-qR-OKv"; */
+"7Oh-qR-OKv.normalTitle" = "报名";
+
+/* Class = "UILabel"; text = "Starter App"; ObjectID = "7qS-eI-gsl"; */
+"7qS-eI-gsl.text" = "入门应用";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "EcD-NU-Om2"; */
+"EcD-NU-Om2.placeholder" = "设置密码";
+
+/* Class = "UIButton"; normalTitle = "Register"; ObjectID = "I86-s7-dae"; */
+"I86-s7-dae.normalTitle" = "注册";
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "JlX-PI-hJT"; */
+"JlX-PI-hJT.normalTitle" = "报名";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "LUw-O0-0xq"; */
+"LUw-O0-0xq.normalTitle" = "登录";
+
+/* Class = "UILabel"; text = "OR"; ObjectID = "ehR-zE-tMI"; */
+"ehR-zE-tMI.text" = "或";
+
+/* Class = "UILabel"; text = "OR"; ObjectID = "fL8-rL-1mx"; */
+"fL8-rL-1mx.text" = "或";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "fTf-9Y-chQ"; */
+"fTf-9Y-chQ.placeholder" = "设置密码";
+
+/* Class = "UITextField"; placeholder = "Email Address"; ObjectID = "h7Y-QI-erh"; */
+"h7Y-QI-erh.placeholder" = "电子邮件地址";
+
+/* Class = "UILabel"; text = "Loading"; ObjectID = "m58-Nf-VcW"; */
+"m58-Nf-VcW.text" = "电子邮件地址";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "ndd-SQ-mc0"; */
+"ndd-SQ-mc0.normalTitle" = "登录";
+
+/* Class = "UITextField"; placeholder = "Email Address"; ObjectID = "qE1-RK-yXV"; */
+"qE1-RK-yXV.placeholder" = "电子邮件地址";
+
+/* Class = "UIButton"; normalTitle = "Forgot Password?"; ObjectID = "wf8-Jv-ERl"; */
+"wf8-Jv-ERl.normalTitle" = "忘记密码？";

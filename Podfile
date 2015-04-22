@@ -5,7 +5,6 @@ use_frameworks!
 
 def import_pods
 	pod 'Alamofire', '~> 1.2'
-    pod 'Alamofire-SwiftyJSON', :podspec => 'https://raw.githubusercontent.com/SwiftyJSON/Alamofire-SwiftyJSON/master/Alamofire-SwiftyJSON.podspec', :branch => 'master'
 	pod 'SwiftTask', '~> 3.0'
 	pod 'Async', :git => 'https://github.com/duemunk/Async.git'
 	pod 'Realm', '~> 0.91'

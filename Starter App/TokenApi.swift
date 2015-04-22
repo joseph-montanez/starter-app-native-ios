@@ -27,53 +27,27 @@
 import Foundation
 import Alamofire
 
-public enum TokenApi: URLRequestConvertible {
+public class TokenApi {
     static var prefix: String = "/token"
     
-    case Generate(String)
-    case Authenticate(String)
-    case Validate(String)
+    public var service: AlamofireService?
     
-    public var method: Alamofire.Method {
-        switch self {
-        case .Generate:
-            return .POST
-        case .Authenticate:
-            return .GET
-        case .Validate:
-            return .GET
-        }
+    public init(service: AlamofireService = AlamofireService()) {
+        self.service = service
     }
     
-    public var path: String {
-        switch self {
-        case .Generate:
-            return TokenApi.prefix + "/generate"
-        case .Authenticate:
-            return TokenApi.prefix + "/authorize"
-        case .Validate:
-            return TokenApi.prefix + "/validate"
-        }
+    public func generate(uuid: String, service: AlamofireService = AlamofireService()) -> NSURLRequest {
+        let setup = service.setUp("generate", method: "POST")
+        return service.encodeJson(setup, parameters: ["uuid": uuid]).0
     }
     
-    // MARK: URLRequestConvertible
+    public func authenticate(uuid: String, service: AlamofireService = AlamofireService()) -> NSURLRequest {
+        let setup = service.setUp("authorize", method: "GET")
+        return service.encodeJson(setup, parameters: ["uuid": uuid]).0
+    }
     
-    public var URLRequest: NSURLRequest {
-        let URL = NSURL(string: Api.endPoint)!
-        let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
-        mutableURLRequest.HTTPMethod = method.rawValue
-        
-        if let token = SharedMemory.sharedInstance.token {
-            mutableURLRequest.setValue(token, forHTTPHeaderField: "X-Token")
-        }
-        
-        switch self {
-        case .Generate(let uuid):
-            return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: ["uuid": uuid]).0
-        case .Authenticate(let uuid):
-            return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: ["uuid": uuid]).0
-        case Validate(let uuid):
-            return Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: ["uuid": uuid]).0
-        }
+    public func validate(uuid: String, service: AlamofireService = AlamofireService()) -> NSURLRequest {
+        let setup = service.setUp("validate", method: "GET")
+        return service.encodeJson(setup, parameters: ["uuid": uuid]).0
     }
 }

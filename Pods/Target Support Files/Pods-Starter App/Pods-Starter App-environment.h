@@ -10,13 +10,7 @@
 #define COCOAPODS_POD_AVAILABLE_Alamofire
 #define COCOAPODS_VERSION_MAJOR_Alamofire 1
 #define COCOAPODS_VERSION_MINOR_Alamofire 2
-#define COCOAPODS_VERSION_PATCH_Alamofire 0
-
-// Alamofire-SwiftyJSON
-#define COCOAPODS_POD_AVAILABLE_Alamofire_SwiftyJSON
-#define COCOAPODS_VERSION_MAJOR_Alamofire_SwiftyJSON 1
-#define COCOAPODS_VERSION_MINOR_Alamofire_SwiftyJSON 1
-#define COCOAPODS_VERSION_PATCH_Alamofire_SwiftyJSON 0
+#define COCOAPODS_VERSION_PATCH_Alamofire 1
 
 // Async
 #define COCOAPODS_POD_AVAILABLE_Async
@@ -64,19 +58,19 @@
 #define COCOAPODS_POD_AVAILABLE_IQKeyboardManager
 #define COCOAPODS_VERSION_MAJOR_IQKeyboardManager 3
 #define COCOAPODS_VERSION_MINOR_IQKeyboardManager 2
-#define COCOAPODS_VERSION_PATCH_IQKeyboardManager 2
+#define COCOAPODS_VERSION_PATCH_IQKeyboardManager 3
 
 // Realm
 #define COCOAPODS_POD_AVAILABLE_Realm
 #define COCOAPODS_VERSION_MAJOR_Realm 0
 #define COCOAPODS_VERSION_MINOR_Realm 91
-#define COCOAPODS_VERSION_PATCH_Realm 1
+#define COCOAPODS_VERSION_PATCH_Realm 3
 
 // Realm/Headers
 #define COCOAPODS_POD_AVAILABLE_Realm_Headers
 #define COCOAPODS_VERSION_MAJOR_Realm_Headers 0
 #define COCOAPODS_VERSION_MINOR_Realm_Headers 91
-#define COCOAPODS_VERSION_PATCH_Realm_Headers 1
+#define COCOAPODS_VERSION_PATCH_Realm_Headers 3
 
 // SwiftTask
 #define COCOAPODS_POD_AVAILABLE_SwiftTask
