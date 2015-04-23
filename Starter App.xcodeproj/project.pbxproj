@@ -172,6 +172,13 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		F479A15B1AE905FB00F25F53 /* ViewStates */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewStates;
+			sourceTree = "<group>";
+		};
 		F48646201ADFAB1200A89FD8 /* Segues */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +238,7 @@
 				F41E71411AD93CFD0005A0FE /* Models */,
 				F41E713E1AD93C390005A0FE /* Utils */,
 				F41E713D1AD93C180005A0FE /* Controllers */,
+				F479A15B1AE905FB00F25F53 /* ViewStates */,
 				F491E1C41AD2577F0087377E /* AppDelegate.swift */,
 				F491E1C81AD2577F0087377E /* Main.storyboard */,
 				F491E1CB1AD2577F0087377E /* Images.xcassets */,

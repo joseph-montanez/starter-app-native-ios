@@ -34,3 +34,38 @@ Once the command is ran several lines of text will show up in your terminal i.e
 	Integrating client project
 	
 After that has finished its process a new file is created, **Starter App.xcworkspace**. This is the file you want to open in XCode.
+
+## Project Structure
+
+The goal of this project is to get you on the right track and apart of that is knowing where to put logic and where to put files.
+
+ - **Services**: This folder is for replacement logic needed for testing, or replacing logic. For example, all Http requests have its own service that be swapped out for testing this way we don't need a REST server for testing. Also this lets you swap out libraries, for example this project uses AlamoFire for HTTP requests, but wrapping this into a service we can now change out AlamoFire for another library if needed. This type of development is known as dependency injection or DI for short.
+ - **UI**: This folder is to support reusable UI elements, this can be further organized to have more sub folders for say buttons versus views.
+ - **Segues**: This folder is for custom screen transitions, which for iOS is called *segues* (/ˈseɡwā,ˈsā-/).
+ - **Api**: This folder is to support the backend REST API. The only job these classes should is take the bare minimum data, send it to the *Http Service*, and relay that back. Logic to deal with how the data is organized should be kepted out of these classes. There should be zero logic on dealing with the response.
+ - **Tasks**: This folder is to support task based / async work. A task can a few results, such as success and failure methods. A task can also be continued, paused, and emit progress. This is a really powerful concept to learn and can help facilitate concepts like Promises, or Futures. The point of this is to avoid callback hell since much of this is asynchronous, but also present it in a synchronous way. Here is an example:
+ 
+        let task = LocalStorageTask()
+        //-- Get storage from disk
+        task.getStorage()
+            //-- See if there is a UUID assigned
+            .then(task.checkUUID)
+            //-- Check if there is a token
+            .then(task.getToken)
+            //-- Check to see if token is authorized
+            .then(task.isAuthorized)    
+ In that example, the application is going to disk, then network and validating information long the way. The end result is to get a pure object that I can then use. At this point as a programmer wanting to consume the object I can do the following:
+ 
+            //-- Check to see if token is authorized
+            .then(task.isAuthorized)
+            .success { storage -> LocalStorage in
+            	//... my logic here
+            }
+            .failure { (error: NSError?, isCancelled: Bool) -> LocalStorage in
+            	//... my logic here
+            }
+- **Models**: This folder is for classes / object to saved to disk for now... This is suppose to be simplified objects, but logic like validation, remote requests such as HTTP request might leak into here. *However* when it comes to validation, there is a big difference from validating a form of a ViewController, and validating data added to the model. Here is a good example to grasp, if you are implementing permissions, these permissions should not be in the model, of lets say a shopping list model, but in the ViewController or respective place.
+- **Utils**: This folder is just for helper functions used around the application.
+- **Controllers**: This folder is for ViewControllers used in iOS.
+- **ViewState**: This folder is to compliment ViewController's state. The way to think about this is, your ViewController should handle events, startup, shutdown, resume, but it should not handle how the data effects a model. So the way to understand view state, is to separate data, from the controller. If you have a text field, that value is stored in the UI, but it needs to be separated into the view state. So the ViewController will handle sending the data from and to the view state to update the UI. By keeping these concepts apart you can then safely implement stateful ViewControllers. It falls into play when you need to the state of a ViewController and save it to disk, so if your application does to background and then gets destroyed, you can recover with the last informaiton. 
+ 
