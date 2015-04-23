@@ -33,33 +33,28 @@ class SecondCustomSegue: UIStoryboardSegue {
         
         switch (sourceViewController, destinationViewController) {
         case (let sourceController as UIViewController, let destinationController as UIViewController):
-            switch (sourceController.view, destinationController.view) {
-            case (let sourceView as UIView, let destinationView as UIView):
-                if let window = UIApplication.sharedApplication().keyWindow {
-                    window.insertSubview(destinationView, belowSubview: sourceView)
-                }
+            let sourceView: UIView = sourceController.view
+            let destinationView: UIView = destinationController.view
+            if let window = UIApplication.sharedApplication().keyWindow {
+                window.insertSubview(destinationView, belowSubview: sourceView)
+            }
+            
+            destinationView.transform = CGAffineTransformScale(destinationView.transform, 0.001, 0.001)
+            
+            
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                sourceView.transform = CGAffineTransformScale(destinationView.transform, 0.001, 0.001)
                 
-                destinationView.transform = CGAffineTransformScale(destinationView.transform, 0.001, 0.001)
-                
-                
-                UIView.animateWithDuration(0.5, animations: { () -> Void in
-                    sourceView.transform = CGAffineTransformScale(destinationView.transform, 0.001, 0.001)
+                }) { (Finished) -> Void in
                     
-                    }) { (Finished) -> Void in
+                    UIView.animateWithDuration(0.5, animations: { () -> Void in
+                        destinationView.transform = CGAffineTransformIdentity
                         
-                        UIView.animateWithDuration(0.5, animations: { () -> Void in
-                            destinationView.transform = CGAffineTransformIdentity
+                        }, completion: { (Finished) -> Void in
                             
-                            }, completion: { (Finished) -> Void in
-                                
-                                sourceView.transform = CGAffineTransformIdentity
-                                self.sourceViewController.presentViewController(destinationController as UIViewController, animated: false, completion: nil)
-                        })
-                }
-                break
-            default:
-                println("source or destination views are null")
-                break
+                            sourceView.transform = CGAffineTransformIdentity
+                            self.sourceViewController.presentViewController(destinationController as UIViewController, animated: false, completion: nil)
+                    })
             }
             break
         default:
