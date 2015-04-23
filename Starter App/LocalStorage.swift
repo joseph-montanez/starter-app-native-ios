@@ -30,6 +30,7 @@ import Foundation
 import Realm
 import SwiftTask
 import Async
+import SwiftyJSON
 
 public class LocalStorage: RLMObject {
     typealias LocalStorageTask = SwiftTask.Task<Float, LocalStorage, NSError>
@@ -42,6 +43,24 @@ public class LocalStorage: RLMObject {
         let identifier = NSUUID().UUIDString
         uuid = identifier
         return identifier
+    }
+    
+    public func authorize(service: HttpService = HttpService(), fulfill: (LocalStorage -> Void), reject: (NSError -> Void)) {
+        //-- If there is no token we need to generate one
+        let req = service.request(TokenApi().authenticate(uuid))
+        
+        req.responseJSON { (request, response, optionalJson, error) in
+            if let json: AnyObject = optionalJson,
+            let data = .Some(JSON(json)),
+            let success = data["success"].bool,
+            let authorized = data["authorized"].bool
+            where authorized == true {
+                fulfill(self)
+            } else {
+                reject(NSError(domain: "Not authorized", code: Api.UNATHORIZED,
+                    userInfo: ["file": __FILE__, "line": __LINE__]))
+            }
+        }
     }
     
     public func saveToDisk() {

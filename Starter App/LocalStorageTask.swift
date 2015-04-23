@@ -90,30 +90,7 @@ public class LocalStorageTask {
             if let store = result where count(store.token) > 0 {
                 fulfill(store)
             } else if let store = result where count(store.token) == 0 {
-                //-- If there is no token we need to generate one
-                let req = Alamofire.request(TokenApi().generate(store.uuid))
-                
-                req.responseJSON { (request, response, nullableJson, error) -> Void in
-                    let defaultError = NSError(domain: "Unable to generate token from server", code: 1003,
-                        userInfo: ["file": __FILE__, "line": __LINE__])
-                    if error != nil {
-                        reject(error ?? defaultError)
-                    } else if let json: AnyObject = nullableJson {
-                        let data = JSON(json)
-                        if let success = data["success"].bool,
-                            let token = data["token"].string {
-                                store.token = token
-                                fulfill(store)
-                        } else {
-                            let domain = data["message"].string ?? "Unable to generate token from server"
-                            reject(NSError(domain: domain, code: 1003,
-                                userInfo: ["file": __FILE__, "line": __LINE__]))
-                        }
-                    } else {
-                        reject(defaultError)
-                    }
-                    return
-                }
+                store.authorize(fulfill: fulfill, reject: reject)
             } else {
                 reject(errorInfo?.0 ?? NSError(domain: "No local storage to add token too", code: 1002,
                     userInfo: ["file": __FILE__, "line": __LINE__]))

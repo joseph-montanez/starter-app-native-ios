@@ -16,10 +16,11 @@
 		F41E71491AD93F8C0005A0FE /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E71481AD93F8C0005A0FE /* HomeController.swift */; };
 		F41E714B1AD952B70005A0FE /* SharedMemory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E714A1AD952B70005A0FE /* SharedMemory.swift */; };
 		F44C26581AD7BAC9003BD6B1 /* KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44C26571AD7BAC9003BD6B1 /* KeyboardNotification.swift */; };
-		F454E2211AE7AEF400D307CA /* AlamofireService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F454E2201AE7AEF400D307CA /* AlamofireService.swift */; };
+		F454E2211AE7AEF400D307CA /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F454E2201AE7AEF400D307CA /* HttpService.swift */; };
 		F45EFCD31AE0CB05006BF2DB /* Http.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45EFCD21AE0CB05006BF2DB /* Http.swift */; };
 		F46479CF1AE2A36E00CC1F39 /* AsyncTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46479CE1AE2A36E00CC1F39 /* AsyncTask.swift */; };
 		F46DA01C1AD3EA9D0088E2DB /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46DA01B1AD3EA9D0088E2DB /* Api.swift */; };
+		F479A15A1AE8F22C00F25F53 /* HttpRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F479A1591AE8F22C00F25F53 /* HttpRequestService.swift */; };
 		F47E757C1AD27DD80047C968 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47E757B1AD27DD80047C968 /* LoginController.swift */; };
 		F48646231ADFAB4D00A89FD8 /* FirstCustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48646211ADFAB4D00A89FD8 /* FirstCustomSegue.swift */; };
 		F48646241ADFAB4D00A89FD8 /* SecondCustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48646221ADFAB4D00A89FD8 /* SecondCustomSegue.swift */; };
@@ -62,13 +63,14 @@
 		F41E71481AD93F8C0005A0FE /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		F41E714A1AD952B70005A0FE /* SharedMemory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedMemory.swift; sourceTree = "<group>"; };
 		F44C26571AD7BAC9003BD6B1 /* KeyboardNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardNotification.swift; sourceTree = "<group>"; };
-		F454E2201AE7AEF400D307CA /* AlamofireService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireService.swift; sourceTree = "<group>"; };
+		F454E2201AE7AEF400D307CA /* HttpService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
 		F45EFCD21AE0CB05006BF2DB /* Http.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Http.swift; sourceTree = "<group>"; };
 		F46479CE1AE2A36E00CC1F39 /* AsyncTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncTask.swift; sourceTree = "<group>"; };
 		F46479D01AE3F67B00CC1F39 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		F46479D11AE3F67B00CC1F39 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		F46DA01B1AD3EA9D0088E2DB /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		F46DA0231AD3F11F0088E2DB /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		F479A1591AE8F22C00F25F53 /* HttpRequestService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequestService.swift; sourceTree = "<group>"; };
 		F47E757B1AD27DD80047C968 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		F48646211ADFAB4D00A89FD8 /* FirstCustomSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstCustomSegue.swift; sourceTree = "<group>"; };
 		F48646221ADFAB4D00A89FD8 /* SecondCustomSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondCustomSegue.swift; sourceTree = "<group>"; };
@@ -156,7 +158,8 @@
 		F454E21F1AE7AEC400D307CA /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				F454E2201AE7AEF400D307CA /* AlamofireService.swift */,
+				F454E2201AE7AEF400D307CA /* HttpService.swift */,
+				F479A1591AE8F22C00F25F53 /* HttpRequestService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				F44C26581AD7BAC9003BD6B1 /* KeyboardNotification.swift in Sources */,
 				F4EA015B1AE7B41800B88B55 /* FacebookRegisterUIButton.swift in Sources */,
 				F41E714B1AD952B70005A0FE /* SharedMemory.swift in Sources */,
+				F479A15A1AE8F22C00F25F53 /* HttpRequestService.swift in Sources */,
 				F486462C1ADFF1EB00A89FD8 /* ExclusiveUIButton.swift in Sources */,
 				F41E71431AD93D0F0005A0FE /* User.swift in Sources */,
 				F49982021ADA8550001D6796 /* TokenApi.swift in Sources */,
@@ -509,7 +513,7 @@
 				F41E71401AD93C650005A0FE /* StartController.swift in Sources */,
 				F48646231ADFAB4D00A89FD8 /* FirstCustomSegue.swift in Sources */,
 				F491E1C51AD2577F0087377E /* AppDelegate.swift in Sources */,
-				F454E2211AE7AEF400D307CA /* AlamofireService.swift in Sources */,
+				F454E2211AE7AEF400D307CA /* HttpService.swift in Sources */,
 				F48646261ADFAB7500A89FD8 /* SecondCustomSegueUnwind.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

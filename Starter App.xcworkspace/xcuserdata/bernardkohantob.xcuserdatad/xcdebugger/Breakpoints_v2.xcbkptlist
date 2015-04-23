@@ -9,7 +9,7 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Starter App/AlamofireService.swift"
+            filePath = "Starter App/HttpService.swift"
             timestampString = "451396526.408689"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"

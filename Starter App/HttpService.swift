@@ -1,6 +1,7 @@
 //
-//  TokenApi.swift
+//  AlamofireService.swift
 //  Starter App
+//
 //
 //    The MIT License (MIT)
 //
@@ -23,31 +24,35 @@
 //    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //    THE SOFTWARE.
+//
 
 import Foundation
 import Alamofire
 
-public class TokenApi {
-    static var prefix: String = "/token"
+public class HttpService {
+    public var httpRequest: HttpRequestService?
     
-    public var service: HttpService?
-    
-    public init(service: HttpService = HttpService()) {
-        self.service = service
+    public init(httpRequest: HttpRequestService = HttpRequestService()) {
+        self.httpRequest = httpRequest
     }
     
-    public func generate(uuid: String, service: HttpService = HttpService()) -> NSURLRequest {
-        let setup = service.setUp("generate", method: "POST")
-        return service.encodeJson(setup, parameters: ["uuid": uuid]).0
+    public func encodeJson(URLRequest: URLRequestConvertible, parameters: [String: AnyObject]?) -> (NSURLRequest, NSError?) {
+        return Alamofire.ParameterEncoding.JSON.encode(URLRequest, parameters: parameters)
     }
     
-    public func authenticate(uuid: String, service: HttpService = HttpService()) -> NSURLRequest {
-        let setup = service.setUp("authorize", method: "GET")
-        return service.encodeJson(setup, parameters: ["uuid": uuid]).0
+    public func setUp(path: String, method: String) -> NSMutableURLRequest {
+        let URL = NSURL(string: Api.endPoint)!
+        let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
+        mutableURLRequest.HTTPMethod = method
+        
+        if let token = SharedMemory.sharedInstance.token {
+            mutableURLRequest.setValue(token, forHTTPHeaderField: "X-Token")
+        }
+        
+        return mutableURLRequest
     }
     
-    public func validate(uuid: String, service: HttpService = HttpService()) -> NSURLRequest {
-        let setup = service.setUp("validate", method: "GET")
-        return service.encodeJson(setup, parameters: ["uuid": uuid]).0
+    public func request(URLRequest: URLRequestConvertible) -> HttpRequestService {
+        return httpRequest!.wrap(Alamofire.request(URLRequest))
     }
 }

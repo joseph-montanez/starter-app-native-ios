@@ -1,6 +1,7 @@
 //
-//  TokenApi.swift
+//  HttpRequestService.swift
 //  Starter App
+//
 //
 //    The MIT License (MIT)
 //
@@ -23,31 +24,28 @@
 //    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 //    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //    THE SOFTWARE.
+//
 
 import Foundation
 import Alamofire
 
-public class TokenApi {
-    static var prefix: String = "/token"
+public class HttpRequestService {
+    public var request: Alamofire.Request?
     
-    public var service: HttpService?
-    
-    public init(service: HttpService = HttpService()) {
-        self.service = service
+    public init() {
+        
     }
     
-    public func generate(uuid: String, service: HttpService = HttpService()) -> NSURLRequest {
-        let setup = service.setUp("generate", method: "POST")
-        return service.encodeJson(setup, parameters: ["uuid": uuid]).0
+    public init(request: Alamofire.Request) {
+        self.request = request
     }
     
-    public func authenticate(uuid: String, service: HttpService = HttpService()) -> NSURLRequest {
-        let setup = service.setUp("authorize", method: "GET")
-        return service.encodeJson(setup, parameters: ["uuid": uuid]).0
+    public func wrap(request: Alamofire.Request) -> HttpRequestService {
+        return HttpRequestService(request: request)
     }
     
-    public func validate(uuid: String, service: HttpService = HttpService()) -> NSURLRequest {
-        let setup = service.setUp("validate", method: "GET")
-        return service.encodeJson(setup, parameters: ["uuid": uuid]).0
+    public func responseJSON(options: NSJSONReadingOptions = NSJSONReadingOptions.AllowFragments, completionHandler: (NSURLRequest, NSHTTPURLResponse?, AnyObject?, NSError?) -> Void) -> Self {
+        request?.responseJSON(options: options, completionHandler: completionHandler)
+        return self
     }
 }
