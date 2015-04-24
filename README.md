@@ -67,5 +67,15 @@ The goal of this project is to get you on the right track and apart of that is k
 - **Models**: This folder is for classes / object to saved to disk for now... This is suppose to be simplified objects, but logic like validation, remote requests such as HTTP request might leak into here. *However* when it comes to validation, there is a big difference from validating a form of a ViewController, and validating data added to the model. Here is a good example to grasp, if you are implementing permissions, these permissions should not be in the model, of lets say a shopping list model, but in the ViewController or respective place.
 - **Utils**: This folder is just for helper functions used around the application.
 - **Controllers**: This folder is for ViewControllers used in iOS.
-- **ViewState**: This folder is to compliment ViewController's state. The way to think about this is, your ViewController should handle events, startup, shutdown, resume, but it should not handle how the data effects a model. So the way to understand view state, is to separate data, from the controller. If you have a text field, that value is stored in the UI, but it needs to be separated into the view state. So the ViewController will handle sending the data from and to the view state to update the UI. By keeping these concepts apart you can then safely implement stateful ViewControllers. It falls into play when you need to the state of a ViewController and save it to disk, so if your application does to background and then gets destroyed, you can recover with the last informaiton. 
+- **ViewModels**: This folder is to compliment ViewController's state. The way to think about this is, your ViewController should handle events, startup, shutdown, resume, but it should not handle how the data effects a model. So the way to understand a view model, is to separate data, from the controller. If you have a text field, that value is stored in the UI, then it needs to be separated into the view state. So the ViewController will handle sending the data from and to the view model to update the UI. By keeping these concepts apart you can then safely implement stateful ViewControllers. It falls into play when you need to the state of a ViewController and save it to disk, so if your application does to background and then gets destroyed, you can recover with the last informaiton. 
+
+## Suggested Software
+
+On OSX there are various tools to help create iOS Applications. Here is a list that I suggest:
+
+ - Gimp - General Graphics Editor
+ - Inkscape - Vector Editor
+ - Mou - Markdown Editor
+ - Prepo - Icon and Artist resizer for iOS
+ - Cyberduck - SFTP/FTP/S3/Google Drive Software
  
