@@ -78,4 +78,5 @@ On OSX there are various tools to help create iOS Applications. Here is a list t
  - Mou - Markdown Editor
  - Prepo - Icon and Artist resizer for iOS
  - Cyberduck - SFTP/FTP/S3/Google Drive Software
+ - Shuttle - Manage SSH
  
