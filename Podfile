@@ -12,6 +12,7 @@ def import_pods
     pod 'FBSDKShareKit', :podspec => 'https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKShareKit.podspec', :branch => 'dev'
     pod 'FBSDKLoginKit', :podspec => 'https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKLoginKit.podspec', :branch => 'dev'
     pod 'SwiftyJSON', '~> 2.2'
+    pod 'Bond', '~> 3.7'
 end
 
 target 'Starter App' do

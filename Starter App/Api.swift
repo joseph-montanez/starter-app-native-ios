@@ -27,10 +27,13 @@
 //
 
 import Foundation
-import Alamofire
+import SwiftyJSON
+import Async
 
 public class Api {
     static let UNATHORIZED = 1005
+    static let SERVER_ERROR = ("Server Error", 1006)
+    static let VALIDATION_ERROR = ("Validation Error", 1007)
     static let endPoint = "http://localhost:8000/api/v1"
     
     public enum Request {
@@ -39,10 +42,43 @@ public class Api {
         case TokenValidate
     }
     
+    static func good(optionalJson: AnyObject?) -> JSON? {
+        if let json: AnyObject = optionalJson, let data = .Some(JSON(json)) {
+            //-- See if there is a new Token
+            Api.token(data)
+            
+            if let success = data["success"].bool {
+                return data
+            } else {
+                return .None
+            }
+        } else {
+            return .None
+        }
+    }
     
-    func parseJson(jsonData: NSData) -> NSArray {
-        var error: NSError?
-        let jsonDict = NSJSONSerialization.JSONObjectWithData(jsonData, options: nil, error: &error) as! NSArray
-        return jsonDict
+    static func token(data: JSON) {
+        if let token = data["token"].string where count(token) > 0 {
+            let task = LocalStorageTask()
+            task.getStorage().success { store -> LocalStorage in
+                store.token = token
+                Async.background {
+                    store.saveToDisk()
+                    return
+                }
+                return store
+            }
+        }
+    }
+    
+    static func getMessageBag(data: JSON) -> [(String, String)] {
+        var messages = [(String, String)]()
+        for (key: String, error: JSON) in data["messages"] {
+            for (index: String, message: JSON) in error {
+                println("\(key): \(message) ")
+                messages.append((key, message.string ?? ""))
+            }
+        }
+        return messages
     }
 }

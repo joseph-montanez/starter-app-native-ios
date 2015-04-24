@@ -38,10 +38,6 @@
     {
       "name": "arc",
       "public_header_files": "FBSDKCoreKit/FBSDKCoreKit/*.h",
-      "private_header_files": [
-        "FBSDKCoreKit/FBSDKCoreKit/**/*Internal.h",
-        "FBSDKCoreKit/FBSDKCoreKit/Internal/**/*.h"
-      ],
       "source_files": "FBSDKCoreKit/FBSDKCoreKit/**/*.{h,m}",
       "exclude_files": "FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKDynamicFrameworkLoader.m",
       "requires_arc": true

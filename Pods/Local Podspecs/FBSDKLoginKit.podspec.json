@@ -30,10 +30,6 @@
   "requires_arc": true,
   "source_files": "FBSDKLoginKit/FBSDKLoginKit/**/*.{h,m}",
   "public_header_files": "FBSDKLoginKit/FBSDKLoginKit/*.{h}",
-  "private_header_files": [
-    "FBSDKLoginKit/FBSDKLoginKit/**/*Internal.h",
-    "FBSDKLoginKit/FBSDKLoginKit/Internal/**/*.h"
-  ],
   "header_dir": "FBSDKLoginKit",
   "dependencies": {
     "FBSDKCoreKit": [

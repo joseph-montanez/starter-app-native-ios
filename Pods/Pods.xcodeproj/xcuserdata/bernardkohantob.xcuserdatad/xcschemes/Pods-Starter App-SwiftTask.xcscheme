@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9132C2BC5DD5B9E65BA66902"
+               BlueprintIdentifier = "D3622E4BD535043E67616685"
                BuildableName = "SwiftTask.framework"
                BlueprintName = "Pods-Starter App-SwiftTask"
                ReferencedContainer = "container:Pods.xcodeproj">

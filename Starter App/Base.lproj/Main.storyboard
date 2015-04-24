@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4BZ-S9-J2Q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4BZ-S9-J2Q">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
         <!--Home Controller-->
@@ -36,7 +36,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XeE-yb-GBX">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kM6-ks-Hik" userLabel="Content">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -61,6 +61,9 @@
                                                 <state key="normal" image="back_button">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="back:" destination="nCH-sH-K0u" eventType="touchUpInside" id="HFD-0f-wLA"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIl-JC-Qwe" userLabel="Login with Facebook" customClass="FBSDKLoginButton">
                                                 <rect key="frame" x="18" y="85" width="284" height="48"/>
@@ -97,7 +100,7 @@
                                                     <constraint firstAttribute="width" constant="117" id="RCU-cs-bVb"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LFk-fG-taq" userLabel="Login Credentials">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LFk-fG-taq" userLabel="Register Credentials">
                                                 <rect key="frame" x="18" y="234" width="284" height="140"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h7Y-QI-erh">
@@ -160,7 +163,7 @@
                                                     <constraint firstItem="fTf-9Y-chQ" firstAttribute="top" secondItem="Of1-Ch-eDq" secondAttribute="bottom" constant="1" id="ypl-1P-nq7"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I86-s7-dae" userLabel="Login Button" customClass="ExclusiveUIButton" customModule="Starter_App" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I86-s7-dae" userLabel="Register Button" customClass="ExclusiveUIButton" customModule="Starter_App" customModuleProvider="target">
                                                 <rect key="frame" x="18" y="382" width="284" height="48"/>
                                                 <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -172,6 +175,9 @@
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="register:" destination="nCH-sH-K0u" eventType="touchUpInside" id="xfU-QC-Cag"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -206,15 +212,20 @@
                         </subviews>
                         <color key="backgroundColor" red="0.40000000596046448" green="1" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="XeE-yb-GBX" firstAttribute="top" secondItem="d97-s3-TdK" secondAttribute="bottom" id="NW5-4n-RkJ"/>
                             <constraint firstAttribute="width" secondItem="kM6-ks-Hik" secondAttribute="width" id="Vbc-Xm-S64"/>
                             <constraint firstAttribute="trailing" secondItem="XeE-yb-GBX" secondAttribute="trailing" id="Y1s-sm-x0Y"/>
                             <constraint firstItem="LkT-fT-bEf" firstAttribute="top" secondItem="XeE-yb-GBX" secondAttribute="bottom" id="b4s-Fo-LUi"/>
-                            <constraint firstItem="XeE-yb-GBX" firstAttribute="top" secondItem="y1R-ov-WJY" secondAttribute="top" id="ggg-Hc-RML"/>
                             <constraint firstItem="XeE-yb-GBX" firstAttribute="width" secondItem="y1R-ov-WJY" secondAttribute="width" id="m2g-T2-Jsb"/>
                             <constraint firstItem="XeE-yb-GBX" firstAttribute="leading" secondItem="y1R-ov-WJY" secondAttribute="leading" id="vvq-th-sQT"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="email" destination="h7Y-QI-erh" id="mhe-Cs-npG"/>
+                        <outlet property="password" destination="fTf-9Y-chQ" id="VLf-qe-ru1"/>
+                        <outlet property="password_confirm" destination="3Jt-vp-hxa" id="TZz-cq-GVe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lMY-0r-i01" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

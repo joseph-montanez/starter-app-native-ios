@@ -1,0 +1,6 @@
+framework module Bond {
+  umbrella header "Pods-Starter App-Bond-umbrella.h"
+
+  export *
+  module * { export * }
+}

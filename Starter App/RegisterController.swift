@@ -26,6 +26,43 @@
 //
 
 import UIKit
+import Bond
+import SwiftyJSON
 
 class RegisterController: UIViewController {
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var password_confirm: UITextField!
+    
+    let viewModel = RegisterViewViewModel()
+    
+    override func viewWillAppear(animated: Bool) {
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        viewModel.email <->> email.dynText
+        viewModel.password <->> password.dynText
+        viewModel.password_confirm <->> password_confirm.dynText
+        
+    }
+    
+    @IBAction func back(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func register(sender: AnyObject) {
+        let task = UserTask()
+        let job = task.register(viewModel)
+        job.success { data -> Void in
+            let success = data["success"]
+            return
+        }
+        job.failure { (error, isCancelled) -> JSON in
+            println(error)
+            return JSON([])
+        }
+    }
 }

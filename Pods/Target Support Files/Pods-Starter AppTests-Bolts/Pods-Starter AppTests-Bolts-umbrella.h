@@ -1,10 +1,5 @@
 #import <UIKit/UIKit.h>
 
-#import "BFExecutor.h"
-#import "BFTask.h"
-#import "BFTaskCompletionSource.h"
-#import "Bolts.h"
-#import "BoltsVersion.h"
 #import "BFAppLink.h"
 #import "BFAppLink_Internal.h"
 #import "BFAppLinkNavigation.h"
@@ -18,6 +13,11 @@
 #import "BFURL.h"
 #import "BFURL_Internal.h"
 #import "BFWebViewAppLinkResolver.h"
+#import "BFExecutor.h"
+#import "BFTask.h"
+#import "BFTaskCompletionSource.h"
+#import "Bolts.h"
+#import "BoltsVersion.h"
 
 FOUNDATION_EXPORT double BoltsVersionNumber;
 FOUNDATION_EXPORT const unsigned char BoltsVersionString[];

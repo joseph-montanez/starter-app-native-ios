@@ -30,10 +30,6 @@
   "requires_arc": true,
   "source_files": "FBSDKShareKit/FBSDKShareKit/**/*.{h,m}",
   "public_header_files": "FBSDKShareKit/FBSDKShareKit/*.{h}",
-  "private_header_files": [
-    "FBSDKShareKit/FBSDKShareKit/**/*Internal.h",
-    "FBSDKShareKit/FBSDKShareKit/Internal/**/*.h"
-  ],
   "header_dir": "FBSDKShareKit",
   "dependencies": {
     "FBSDKCoreKit": [

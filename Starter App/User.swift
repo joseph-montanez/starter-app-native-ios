@@ -27,8 +27,41 @@
 //
 
 import Realm
+import SwiftyJSON
 
 class User: RLMObject {
     dynamic var id = 0
     dynamic var firstName = ""
+    
+    func register(email: String, password: String, password_confirm: String, fulfill: (JSON -> Void), reject: (NSError -> Void)) {
+        
+        let http = App.getHttpService()
+        let urlReq = UserApi().register(email, password: password, password_confirm: password);
+        let req = http.request(urlReq)
+        
+        req.responseJSON { (request, response, optionalJson, error) in
+            if let data = Api.good(optionalJson)  {
+                if let success = data["success"].bool where success == true {
+                    fulfill(data)
+                } else {
+                    //-- There were error
+                    var messages = [
+                        (String, String?)]()
+                    for (key: String, error: JSON) in data["messages"] {
+                        for (index: String, message: JSON) in error {
+                            println("\(key): \(message) ")
+                            messages.append((key, message.string))
+                        }
+                        //Do something you want
+                    }
+                    reject(NSError(domain: Api.VALIDATION_ERROR.0, code: Api.VALIDATION_ERROR.1,
+                        userInfo: ["file": __FILE__, "line": __LINE__, "messages": messages]))
+                }
+            } else {
+                println(response)
+                reject(NSError(domain: Api.SERVER_ERROR.0, code: Api.SERVER_ERROR.1,
+                    userInfo: ["file": __FILE__, "line": __LINE__]))
+            }
+        }
+    }
 }

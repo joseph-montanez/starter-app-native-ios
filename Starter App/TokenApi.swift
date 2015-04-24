@@ -37,17 +37,17 @@ public class TokenApi {
     }
     
     public func generate(uuid: String, service: HttpService = HttpService()) -> NSURLRequest {
-        let setup = service.setUp("generate", method: "POST")
+        let setup = service.setUp(TokenApi.prefix + "/generate", method: "POST")
         return service.encodeJson(setup, parameters: ["uuid": uuid]).0
     }
     
     public func authenticate(uuid: String, service: HttpService = HttpService()) -> NSURLRequest {
-        let setup = service.setUp("authorize", method: "GET")
+        let setup = service.setUp(TokenApi.prefix + "/authorize", method: "GET")
         return service.encodeJson(setup, parameters: ["uuid": uuid]).0
     }
     
     public func validate(uuid: String, service: HttpService = HttpService()) -> NSURLRequest {
-        let setup = service.setUp("validate", method: "GET")
+        let setup = service.setUp(TokenApi.prefix + "/validate", method: "GET")
         return service.encodeJson(setup, parameters: ["uuid": uuid]).0
     }
 }

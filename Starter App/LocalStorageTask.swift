@@ -30,7 +30,6 @@ import SwiftTask
 import Async
 import Alamofire
 import SwiftyJSON
-//import Alamofire_SwiftyJSON
 
 public class LocalStorageTask {
     public typealias LSTask = SwiftTask.Task<Float, LocalStorage, NSError>
