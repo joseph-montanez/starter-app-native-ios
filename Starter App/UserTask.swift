@@ -33,8 +33,8 @@ import SwiftyJSON
 
 public class UserTask {
 
-    public func register(viewModel: RegisterViewViewModel) -> SwiftTask.Task<Float, JSON, NSError> {
-        return AsyncTask.background { (_, fulfill: JSON -> Void, reject, _) in
+    public func register(viewModel: RegisterViewViewModel) -> SwiftTask.Task<Float, UserApi.RegisterResponse, NSError> {
+        return AsyncTask.background { (_, fulfill: UserApi.RegisterResponseFn, reject, _) in
             User().register(viewModel.email.value, password: viewModel.email.value, password_confirm: viewModel.email.value,
                 fulfill: fulfill,
                 reject: reject)

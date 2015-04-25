@@ -57,12 +57,12 @@ class RegisterController: UIViewController {
         let task = UserTask()
         let job = task.register(viewModel)
         job.success { data -> Void in
-            let success = data["success"]
+            let success = data.success
             return
         }
-        job.failure { (error, isCancelled) -> JSON in
+        job.failure { (error, isCancelled) -> UserApi.RegisterResponse in
             println(error)
-            return JSON([])
+            return UserApi.RegisterResponse(false, [])
         }
     }
 }

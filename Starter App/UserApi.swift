@@ -32,6 +32,9 @@ public class UserApi {
     
     public var service: HttpService?
     
+    public typealias RegisterResponse = (success: Bool, messages: [(String,String)])
+    public typealias RegisterResponseFn = RegisterResponse -> Void
+    
     public init(service: HttpService = App.getHttpService()) {
         self.service = service
     }
