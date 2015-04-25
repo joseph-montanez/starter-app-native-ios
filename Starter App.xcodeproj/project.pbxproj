@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6BF67842DE4BC2EAB72E0045 /* Pods_Starter_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24C613FBCDC933C4FAE5150F /* Pods_Starter_AppTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		948750C81AEBB7BE00DF0BA0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948750C71AEBB7BE00DF0BA0 /* String.swift */; };
+		948750CB1AEBBB7600DF0BA0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 948750C91AEBBB7600DF0BA0 /* InfoPlist.strings */; };
 		C4F904D08D84FC8AA7BE7F12 /* Pods_Starter_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ED387C159043135790B9E81 /* Pods_Starter_App.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F41E71401AD93C650005A0FE /* StartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E713F1AD93C650005A0FE /* StartController.swift */; };
 		F41E71431AD93D0F0005A0FE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41E71421AD93D0F0005A0FE /* User.swift */; };
@@ -57,6 +59,8 @@
 		093001AB81DA7C8F514451CB /* Pods-Starter App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Starter App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Starter App/Pods-Starter App.release.xcconfig"; sourceTree = "<group>"; };
 		24C613FBCDC933C4FAE5150F /* Pods_Starter_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Starter_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ED387C159043135790B9E81 /* Pods_Starter_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Starter_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		948750C71AEBB7BE00DF0BA0 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		948750CA1AEBBB7600DF0BA0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		A5E36ECD996120CD6C57EEE6 /* Pods-Starter AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Starter AppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Starter AppTests/Pods-Starter AppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C6326B7188824F5BA286236A /* Pods-Starter AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Starter AppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Starter AppTests/Pods-Starter AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		E1E0ACC51554168A71D57454 /* Pods-Starter App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Starter App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Starter App/Pods-Starter App.debug.xcconfig"; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 				F41E714A1AD952B70005A0FE /* SharedMemory.swift */,
 				F46479CE1AE2A36E00CC1F39 /* AsyncTask.swift */,
 				F47A8C2A1AEA4DF50051715C /* App.swift */,
+				948750C71AEBB7BE00DF0BA0 /* String.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -273,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				F491E1C31AD2577E0087377E /* Info.plist */,
+				948750C91AEBBB7600DF0BA0 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -383,6 +389,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = F491E1B61AD2577E0087377E;
 			productRefGroup = F491E1C01AD2577E0087377E /* Products */;
@@ -401,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F491E1CA1AD2577F0087377E /* Main.storyboard in Resources */,
+				948750CB1AEBBB7600DF0BA0 /* InfoPlist.strings in Resources */,
 				F491E1CF1AD2577F0087377E /* LaunchScreen.xib in Resources */,
 				F491E1CC1AD2577F0087377E /* Images.xcassets in Resources */,
 			);
@@ -516,6 +524,7 @@
 				F491E1C71AD2577F0087377E /* ViewController.swift in Sources */,
 				F41E71471AD93E240005A0FE /* LocalStorage.swift in Sources */,
 				F46479CF1AE2A36E00CC1F39 /* AsyncTask.swift in Sources */,
+				948750C81AEBB7BE00DF0BA0 /* String.swift in Sources */,
 				F41E71451AD93D8E0005A0FE /* RLMSupport.swift in Sources */,
 				F479A15D1AE93FE700F25F53 /* RegisterViewViewModel.swift in Sources */,
 				F47E757C1AD27DD80047C968 /* LoginController.swift in Sources */,
@@ -563,6 +572,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		948750C91AEBBB7600DF0BA0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				948750CA1AEBBB7600DF0BA0 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		F491E1C81AD2577F0087377E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

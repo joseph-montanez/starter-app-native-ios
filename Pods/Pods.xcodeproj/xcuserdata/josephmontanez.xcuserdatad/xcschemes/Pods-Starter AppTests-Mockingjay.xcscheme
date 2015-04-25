@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "824FC7DF976AFCF6193EB810"
+               BlueprintIdentifier = "A4F2A4F3C3E20EAA69FC48A3"
                BuildableName = "Mockingjay.framework"
                BlueprintName = "Pods-Starter AppTests-Mockingjay"
                ReferencedContainer = "container:Pods.xcodeproj">

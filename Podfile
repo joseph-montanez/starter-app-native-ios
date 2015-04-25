@@ -8,11 +8,17 @@ def import_pods
 	pod 'SwiftTask', '~> 3.0'
 	pod 'Async', :git => 'https://github.com/duemunk/Async.git'
 	pod 'Realm', '~> 0.91'
-    pod 'FBSDKCoreKit', :podspec => 'https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKCoreKit.podspec', :branch => 'dev'
-    pod 'FBSDKShareKit', :podspec => 'https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKShareKit.podspec', :branch => 'dev'
-    pod 'FBSDKLoginKit', :podspec => 'https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKLoginKit.podspec', :branch => 'dev'
+
+    pod 'FBSDKCoreKit', :podspec => 'https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKCoreKit.podspec', :branch => 'dev' # Breaks in Swift 1.2  - so using dev
+    pod 'FBSDKShareKit', :podspec => 'https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKShareKit.podspec', :branch => 'dev' # Breaks in Swift 1.2  - so using dev
+    pod 'FBSDKLoginKit', :podspec => 'https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKLoginKit.podspec', :branch => 'dev' # Breaks in Swift 1.2  - so using dev
+
     pod 'SwiftyJSON', '~> 2.2'
     pod 'Bond', '~> 3.7'
+
+    # UI
+    pod 'SCLAlertView', :git => 'https://github.com/joseph-montanez/SCLAlertView-Swift.git', :branch => 'master' # Breaks in Swift 1.2 - so using master, also doesn't work on multiple subviews?
+    pod "SwiftSpinner", :git => 'https://github.com/joseph-montanez/SwiftSpinner.git', :branch => 'master' # Can use with SCLAlertView without a complete handler - so using master
 end
 
 target 'Starter App' do

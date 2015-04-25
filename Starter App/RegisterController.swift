@@ -28,6 +28,8 @@
 import UIKit
 import Bond
 import SwiftyJSON
+import SCLAlertView
+import SwiftSpinner
 
 class RegisterController: UIViewController {
     @IBOutlet weak var email: UITextField!
@@ -54,14 +56,33 @@ class RegisterController: UIViewController {
     }
     
     @IBAction func register(sender: AnyObject) {
+        SwiftSpinner.show("Registering")
+        
         let task = UserTask()
         let job = task.register(viewModel)
-        job.success { data -> Void in
-            let success = data.success
-            return
-        }
-        job.failure { (error, isCancelled) -> UserApi.RegisterResponse in
-            println(error)
+        job.then { (data: UserApi.RegisterResponse?, result: (error: NSError?, isCancelled: Bool)?) -> UserApi.RegisterResponse in
+            
+            SwiftSpinner.hide() { _ in
+                switch (data, result) {
+                case (.Some(success:true, messages:_), .None):
+                    //-- All is well!
+                    // TODO: Lets log them in baby!
+                    break
+                default:
+                    //-- Bad juju!
+                    let message: String
+                    if let success = data?.success, let messages = data?.messages where !success {
+                        message = messages.reduce("", combine: { (result, message: (key: String, response: String)) -> String in
+                            return "\(result)\n\(message.response)"
+                        })
+                    } else {
+                        message = result?.error?.domain ?? "Server Error"
+                    }
+                    SCLAlertView().showError("Registration Failed".localized, subTitle: message)
+                    break
+                }
+                return
+            }
             return UserApi.RegisterResponse(false, [])
         }
     }

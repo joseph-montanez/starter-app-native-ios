@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D0ED0A691EB7995F1CB32665"
+               BlueprintIdentifier = "BE4C28531E2DAC606F44B6C7"
                BuildableName = "Async.framework"
                BlueprintName = "Pods-Starter AppTests-Async"
                ReferencedContainer = "container:Pods.xcodeproj">

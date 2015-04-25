@@ -90,6 +90,18 @@
 #define COCOAPODS_VERSION_MINOR_Realm_Headers 91
 #define COCOAPODS_VERSION_PATCH_Realm_Headers 3
 
+// SCLAlertView
+#define COCOAPODS_POD_AVAILABLE_SCLAlertView
+#define COCOAPODS_VERSION_MAJOR_SCLAlertView 0
+#define COCOAPODS_VERSION_MINOR_SCLAlertView 3
+#define COCOAPODS_VERSION_PATCH_SCLAlertView 0
+
+// SwiftSpinner
+#define COCOAPODS_POD_AVAILABLE_SwiftSpinner
+#define COCOAPODS_VERSION_MAJOR_SwiftSpinner 0
+#define COCOAPODS_VERSION_MINOR_SwiftSpinner 6
+#define COCOAPODS_VERSION_PATCH_SwiftSpinner 6
+
 // SwiftTask
 #define COCOAPODS_POD_AVAILABLE_SwiftTask
 #define COCOAPODS_VERSION_MAJOR_SwiftTask 3
