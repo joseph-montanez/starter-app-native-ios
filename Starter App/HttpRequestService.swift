@@ -44,6 +44,11 @@ public class HttpRequestService {
         return HttpRequestService(request: request)
     }
     
+    public func responseString(encoding: NSStringEncoding? = nil, completionHandler: (NSURLRequest, NSHTTPURLResponse?, String?, NSError?) -> Void) -> Self  {
+        request?.responseString(encoding: encoding, completionHandler: completionHandler)
+        return self
+    }
+    
     public func responseJSON(options: NSJSONReadingOptions = NSJSONReadingOptions.AllowFragments, completionHandler: (NSURLRequest, NSHTTPURLResponse?, AnyObject?, NSError?) -> Void) -> Self {
         request?.responseJSON(options: options, completionHandler: completionHandler)
         return self
