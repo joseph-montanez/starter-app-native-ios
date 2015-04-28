@@ -61,6 +61,7 @@ public class LocalStorageTask {
     }
         
     public func getStorage() -> LSTask {
+        println(NSDate().timeIntervalSince1970)
         return AsyncTask.background { (_, fulfill: LocalStorage -> Void, _, _) in
             fulfill(LocalStorage.loadFromDisk())
             return
@@ -89,7 +90,7 @@ public class LocalStorageTask {
             if let store = result where count(store.token) > 0 {
                 fulfill(store)
             } else if let store = result where count(store.token) == 0 {
-                store.authorize(fulfill: fulfill, reject: reject)
+                store.generateToken(fulfill, reject: reject)
             } else {
                 reject(errorInfo?.0 ?? NSError(domain: "No local storage to add token too", code: 1002,
                     userInfo: ["file": __FILE__, "line": __LINE__]))
@@ -102,20 +103,7 @@ public class LocalStorageTask {
     public func isAuthorized(result: LocalStorage?, errorInfo: (error: NSError?, isCancelled: Bool)?) -> LSTask {
         return AsyncTask.background { (_, fulfill: LocalStorage -> Void, reject, _) in
             if let store = result where count(store.token) > 0 {
-                //-- If there is no token we need to generate one
-                let req = Alamofire.request(TokenApi().authenticate(store.uuid))
-                
-                req.responseJSON { (request, response, JSON, error) in
-                    if let data = JSON as? [String:AnyObject],
-                        let success = data["success"] as? Bool,
-                        let authorized = data["authorized"] as? Bool
-                        where authorized == true {
-                            fulfill(store)
-                    } else {
-                        reject(NSError(domain: "Not authorized", code: Api.UNATHORIZED,
-                            userInfo: ["file": __FILE__, "line": __LINE__]))
-                    }
-                }
+                store.authorize(fulfill, reject: reject)
             } else {
                 reject(errorInfo?.0 ?? NSError(domain: "No token to perform authorization on", code: 1004,
                     userInfo: ["file": __FILE__, "line": __LINE__]))
