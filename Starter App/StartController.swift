@@ -30,8 +30,8 @@ import Async
 
 class StartController: UIViewController {
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
@@ -57,7 +57,11 @@ class StartController: UIViewController {
             }
             return LocalStorage()
         }
+
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
