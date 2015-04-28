@@ -55,6 +55,6 @@ public class UserApi {
     
     public func user(service: HttpService = App.getHttpService()) -> NSURLRequest {
         let setup = service.setUp(UserApi.prefix + "/validate", method: "GET")
-        return service.encodeJson(setup, parameters: nil).0
+        return service.encode(setup, parameters: nil).0
     }
 }

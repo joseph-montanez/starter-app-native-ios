@@ -40,12 +40,16 @@ public class HttpService {
         return Alamofire.ParameterEncoding.JSON.encode(URLRequest, parameters: parameters)
     }
     
+    public func encode(URLRequest: URLRequestConvertible, parameters: [String: AnyObject]?) -> (NSURLRequest, NSError?) {
+        return Alamofire.ParameterEncoding.URL.encode(URLRequest, parameters: parameters)
+    }
+    
     public func setUp(path: String, method: String) -> NSMutableURLRequest {
         let URL = NSURL(string: Api.endPoint)!
         let mutableURLRequest = NSMutableURLRequest(URL: URL.URLByAppendingPathComponent(path))
         mutableURLRequest.HTTPMethod = method
         
-        if let token = SharedMemory.sharedInstance.token {
+        if let token = SharedMemory.sharedInstance.token where count(token) > 0 {
             mutableURLRequest.setValue(token, forHTTPHeaderField: "X-Token")
         }
         

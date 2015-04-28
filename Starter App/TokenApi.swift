@@ -43,11 +43,11 @@ public class TokenApi {
     
     public func authenticate(uuid: String, service: HttpService = HttpService()) -> NSURLRequest {
         let setup = service.setUp(TokenApi.prefix + "/authorize", method: "GET")
-        return service.encodeJson(setup, parameters: ["uuid": uuid]).0
+        return service.encode(setup, parameters: ["uuid": uuid]).0
     }
     
     public func validate(uuid: String, service: HttpService = HttpService()) -> NSURLRequest {
         let setup = service.setUp(TokenApi.prefix + "/validate", method: "GET")
-        return service.encodeJson(setup, parameters: ["uuid": uuid]).0
+        return service.encode(setup, parameters: ["uuid": uuid]).0
     }
 }
