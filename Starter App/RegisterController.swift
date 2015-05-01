@@ -31,7 +31,7 @@ import SwiftyJSON
 import SCLAlertView
 import SwiftSpinner
 
-class RegisterController: UIViewController {
+class RegisterController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var password_confirm: UITextField!
@@ -85,5 +85,14 @@ class RegisterController: UIViewController {
             }
             return UserApi.RegisterResponse(false, [])
         }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField == password_confirm {
+            register(textField)
+            //-- TODO I should dismiss the keyboard here!
+        }
+        
+        return true;
     }
 }
