@@ -39,12 +39,12 @@ public class UserApi {
         self.service = service
     }
     
-    public func register(email: String, password: String, password_confirm: String, service: HttpService = App.getHttpService()) -> NSURLRequest {
+    public func register(email: String, password: String, password_confirmation: String, service: HttpService = App.getHttpService()) -> NSURLRequest {
         let setup = service.setUp(UserApi.prefix + "/register", method: "POST")
         return service.encodeJson(setup, parameters: [
             "email": email,
             "password": password,
-            "password_confirm": password_confirm
+            "password_confirmation": password_confirmation
             ]).0
     }
     

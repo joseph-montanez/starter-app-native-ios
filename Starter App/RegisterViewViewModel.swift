@@ -12,7 +12,7 @@ import Bond
 public class RegisterViewViewModel {
     let email = Dynamic<String>("")
     let password =  Dynamic<String>("")
-    let password_confirm = Dynamic<String>("")
+    let password_confirmation = Dynamic<String>("")
     
     init() {
     }

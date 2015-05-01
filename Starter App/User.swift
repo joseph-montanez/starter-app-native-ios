@@ -35,10 +35,10 @@ class User: RLMObject {
     
     
     
-    func register(email: String, password: String, password_confirm: String, fulfill: UserApi.RegisterResponseFn, reject: (NSError -> Void)) {
+    func register(email: String, password: String, password_confirmation: String, fulfill: UserApi.RegisterResponseFn, reject: (NSError -> Void)) {
         
         let http = App.getHttpService()
-        let urlReq = UserApi().register(email, password: password, password_confirm: password);
+        let urlReq = UserApi().register(email, password: password, password_confirmation: password);
         let req = http.request(urlReq)
         
         req.responseJSON { (request, response, optionalJson, error) in

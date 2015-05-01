@@ -133,7 +133,7 @@
                                                             <constraint firstAttribute="height" constant="1" id="ybc-h0-0pj"/>
                                                         </constraints>
                                                     </view>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Password Confirm" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Jt-vp-hxa" userLabel="Password">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Password Confirm" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Jt-vp-hxa" userLabel="Password Confirmation">
                                                         <rect key="frame" x="8" y="92" width="268" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="BM0-I5-WtW"/>
@@ -227,7 +227,7 @@
                     <connections>
                         <outlet property="email" destination="h7Y-QI-erh" id="mhe-Cs-npG"/>
                         <outlet property="password" destination="fTf-9Y-chQ" id="VLf-qe-ru1"/>
-                        <outlet property="password_confirm" destination="3Jt-vp-hxa" id="TZz-cq-GVe"/>
+                        <outlet property="password_confirmation" destination="3Jt-vp-hxa" id="mDk-bu-3GD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lMY-0r-i01" userLabel="First Responder" sceneMemberID="firstResponder"/>

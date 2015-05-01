@@ -34,7 +34,7 @@ import SwiftSpinner
 class RegisterController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var password_confirm: UITextField!
+    @IBOutlet weak var password_confirmation: UITextField!
     
     let viewModel = RegisterViewViewModel()
     
@@ -47,7 +47,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
         
         viewModel.email <->> email.dynText
         viewModel.password <->> password.dynText
-        viewModel.password_confirm <->> password_confirm.dynText
+        viewModel.password_confirmation <->> password_confirmation.dynText
         
     }
     
@@ -88,7 +88,7 @@ class RegisterController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if textField == password_confirm {
+        if textField == password_confirmation {
             register(textField)
             //-- TODO I should dismiss the keyboard here!
         }

@@ -35,7 +35,7 @@ public class UserTask {
 
     public func register(viewModel: RegisterViewViewModel) -> SwiftTask.Task<Float, UserApi.RegisterResponse, NSError> {
         return AsyncTask.background { (_, fulfill: UserApi.RegisterResponseFn, reject, _) in
-            User().register(viewModel.email.value, password: viewModel.password.value, password_confirm: viewModel.password_confirm.value,
+            User().register(viewModel.email.value, password: viewModel.password.value, password_confirmation: viewModel.password_confirmation.value,
                 fulfill: fulfill,
                 reject: reject)
             return
