@@ -61,10 +61,12 @@ public class Api {
         if let token = data["token"].string where count(token) > 0 {
             let task = LocalStorageTask()
             task.getStorage().success { store -> LocalStorage in
-                store.token = token
-                Async.background {
-                    store.saveToDisk()
-                    return
+                if store.token != token {
+                    store.token = token
+                    Async.background {
+                        store.saveToDisk()
+                        return
+                    }
                 }
                 return store
             }
