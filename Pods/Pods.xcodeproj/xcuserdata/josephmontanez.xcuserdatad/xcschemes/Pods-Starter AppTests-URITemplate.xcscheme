@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "279EDD4892A695876D0D6782"
+               BlueprintIdentifier = "8F19667A65CEAA914E4EA7C0"
                BuildableName = "URITemplate.framework"
                BlueprintName = "Pods-Starter AppTests-URITemplate"
                ReferencedContainer = "container:Pods.xcodeproj">

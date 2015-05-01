@@ -1,6 +1,6 @@
 {
   "name": "FBSDKLoginKit",
-  "version": "4.0.1",
+  "version": "4.1.0",
   "summary": "Official Facebook SDK for iOS to access Facebook Platform with features like Login, Share and Message Dialog, App Links, and Graph API",
   "description": "                   The Facebook SDK for iOS LoginKit framework provides:\n                   * Facebook Login to easily sign in users.\n                   * Sharing features like the Share or Message Dialog to grow your app.\n                   * Simpler Graph API access to provide more social context.\n",
   "homepage": "https://developers.facebook.com/docs/ios/",
@@ -14,7 +14,7 @@
   },
   "source": {
     "git": "https://github.com/facebook/facebook-ios-sdk.git",
-    "tag": "sdk-version-4.0.1"
+    "tag": "sdk-version-4.1.0"
   },
   "weak_frameworks": [
     "Accounts",

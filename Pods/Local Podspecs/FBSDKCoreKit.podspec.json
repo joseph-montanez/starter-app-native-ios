@@ -1,6 +1,6 @@
 {
   "name": "FBSDKCoreKit",
-  "version": "4.0.1",
+  "version": "4.1.0",
   "summary": "Official Facebook SDK for iOS to access Facebook Platform's core features",
   "description": "                   The Facebook SDK for iOS CoreKit framework provides:\n                   * App Events (for App Analytics)\n                   * Graph API Access and Error Recovery\n                   * Working with Access Tokens and User Profiles\n",
   "homepage": "https://developers.facebook.com/docs/ios/",
@@ -14,7 +14,7 @@
   },
   "source": {
     "git": "https://github.com/facebook/facebook-ios-sdk.git",
-    "tag": "sdk-version-4.0.1"
+    "tag": "sdk-version-4.1.0"
   },
   "weak_frameworks": [
     "Accounts",

@@ -9,15 +9,15 @@ def import_pods
 	pod 'Async', :git => 'https://github.com/duemunk/Async.git'
 	pod 'Realm', '~> 0.91'
 
-    pod 'FBSDKCoreKit', :podspec => 'https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKCoreKit.podspec', :branch => 'dev' # Breaks in Swift 1.2  - so using dev
-    pod 'FBSDKShareKit', :podspec => 'https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKShareKit.podspec', :branch => 'dev' # Breaks in Swift 1.2  - so using dev
-    pod 'FBSDKLoginKit', :podspec => 'https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKLoginKit.podspec', :branch => 'dev' # Breaks in Swift 1.2  - so using dev
+	pod 'FBSDKCoreKit', '~> 4.1'
+	pod 'FBSDKShareKit', '~> 4.1'
+	pod 'FBSDKLoginKit', '~> 4.1'
 
     pod 'SwiftyJSON', '~> 2.2'
     pod 'Bond', '~> 3.7'
 
     # UI
-    pod 'SCLAlertView', :git => 'https://github.com/joseph-montanez/SCLAlertView-Swift.git', :branch => 'master' # Breaks in Swift 1.2 - so using master, also doesn't work on multiple subviews?
+    pod 'SCLAlertView', '~> 0.3'
     pod "SwiftSpinner", :git => 'https://github.com/joseph-montanez/SwiftSpinner.git', :branch => 'master' # Can use with SCLAlertView without a complete handler - so using master
 end
 

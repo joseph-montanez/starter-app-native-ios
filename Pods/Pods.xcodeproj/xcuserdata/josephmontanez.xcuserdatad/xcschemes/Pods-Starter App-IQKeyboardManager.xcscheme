@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "22DDC612FB39993C596310A2"
+               BlueprintIdentifier = "0F6AB0CEE8E60CA227462A92"
                BuildableName = "IQKeyboardManager.framework"
                BlueprintName = "Pods-Starter App-IQKeyboardManager"
                ReferencedContainer = "container:Pods.xcodeproj">

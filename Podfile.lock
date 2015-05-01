@@ -8,18 +8,18 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.1.5)
   - Bond (3.7.1)
-  - FBSDKCoreKit (4.0.1):
+  - FBSDKCoreKit (4.1.0):
     - Bolts (~> 1.1)
-    - FBSDKCoreKit/arc (= 4.0.1)
-    - FBSDKCoreKit/no-arc (= 4.0.1)
-  - FBSDKCoreKit/arc (4.0.1):
+    - FBSDKCoreKit/arc (= 4.1.0)
+    - FBSDKCoreKit/no-arc (= 4.1.0)
+  - FBSDKCoreKit/arc (4.1.0):
     - Bolts (~> 1.1)
-  - FBSDKCoreKit/no-arc (4.0.1):
+  - FBSDKCoreKit/no-arc (4.1.0):
     - Bolts (~> 1.1)
     - FBSDKCoreKit/arc
-  - FBSDKLoginKit (4.0.1):
+  - FBSDKLoginKit (4.1.0):
     - FBSDKCoreKit
-  - FBSDKShareKit (4.0.1):
+  - FBSDKShareKit (4.1.0):
     - FBSDKCoreKit
   - IQKeyboardManager (3.2.3)
   - Mockingjay (0.2.0):
@@ -34,9 +34,9 @@ PODS:
     - Mockingjay/Core
   - Nimble (0.4.2)
   - Quick (0.3.1)
-  - Realm (0.91.3):
-    - Realm/Headers (= 0.91.3)
-  - Realm/Headers (0.91.3)
+  - Realm (0.91.5):
+    - Realm/Headers (= 0.91.5)
+  - Realm/Headers (0.91.5)
   - SCLAlertView (0.3)
   - SwiftSpinner (0.6.6)
   - SwiftTask (3.0.0)
@@ -48,9 +48,9 @@ DEPENDENCIES:
   - Alamofire (~> 1.2)
   - Async (from `https://github.com/duemunk/Async.git`)
   - Bond (~> 3.7)
-  - FBSDKCoreKit (from `https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKCoreKit.podspec`)
-  - FBSDKLoginKit (from `https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKLoginKit.podspec`)
-  - FBSDKShareKit (from `https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKShareKit.podspec`)
+  - FBSDKCoreKit (~> 4.1)
+  - FBSDKLoginKit (~> 4.1)
+  - FBSDKShareKit (~> 4.1)
   - IQKeyboardManager
   - Mockingjay (~> 0.2)
   - Nimble (~> 0.4)
@@ -67,15 +67,6 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   Async:
     :git: https://github.com/duemunk/Async.git
-  FBSDKCoreKit:
-    :branch: dev
-    :podspec: https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKCoreKit.podspec
-  FBSDKLoginKit:
-    :branch: dev
-    :podspec: https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKLoginKit.podspec
-  FBSDKShareKit:
-    :branch: dev
-    :podspec: https://raw.githubusercontent.com/facebook/facebook-ios-sdk/dev/FBSDKShareKit.podspec
   SCLAlertView:
     :branch: master
     :git: https://github.com/joseph-montanez/SCLAlertView-Swift.git
@@ -99,14 +90,14 @@ SPEC CHECKSUMS:
   Async: aba7b48a4cd05dae27d1affce2f48f2ed61e75f9
   Bolts: aac24961496d504aa56fc267cde95162a71bac39
   Bond: 96a42cdc96269670b0bb3421a8badae8d9b266df
-  FBSDKCoreKit: 5e11fb5dd3d30f6bc992d4ba376b54641ab81db7
-  FBSDKLoginKit: bcaee14298da54be1370f51826fce581ad251358
-  FBSDKShareKit: 53d08b90197a6576d038f79122c707da0e70cdb1
+  FBSDKCoreKit: 469ed167195f860dbd2b4c4bbaa33d2e90598db9
+  FBSDKLoginKit: ff6224762732e3698f30942e4544321b8c7a23e6
+  FBSDKShareKit: 8002faf0c564ff3625eadd16e506b0b0fbf3adef
   IQKeyboardManager: 6ca5c54e3776eb54af4c7caf515833f3cd761d59
   Mockingjay: 8635bddf88b7c93833db67e1dc54b8ffe7efe921
   Nimble: 49b7a7da8919f42823d37c6d68cc6d15a7009f32
   Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
-  Realm: 4bfdac6f0f3170a3947c7196e2e9a2e49c943719
+  Realm: 670059efdb212ab939c1745a60aff27820c0a9c4
   SCLAlertView: 7d1910ae5137626797d1a8e5ca9166964801881e
   SwiftSpinner: a083775a841547fe4ffe03bbfdd84cd43a10c38f
   SwiftTask: 2f2c0a7db83def1d1e3bad518169be3f61c603f4

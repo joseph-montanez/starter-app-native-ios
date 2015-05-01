@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C836C80ADC9E802F780869D5"
+               BlueprintIdentifier = "FB77C096AE6D52AA43372641"
                BuildableName = "FBSDKLoginKit.framework"
                BlueprintName = "Pods-Starter AppTests-FBSDKLoginKit"
                ReferencedContainer = "container:Pods.xcodeproj">
