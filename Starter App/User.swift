@@ -54,7 +54,6 @@ class User: RLMObject {
                     fulfill(result)
                 }
             } else {
-                println(response)
                 reject(NSError(domain: Api.SERVER_ERROR.0, code: Api.SERVER_ERROR.1,
                     userInfo: ["file": __FILE__, "line": __LINE__]))
             }
