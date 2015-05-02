@@ -29,6 +29,7 @@
 import Foundation
 import SwiftyJSON
 import Async
+import SwiftTask
 
 public class Api {
     static let UNATHORIZED = 1005
@@ -40,6 +41,31 @@ public class Api {
         case TokenGenerate
         case TokenAuthorize
         case TokenValidate
+    }
+    
+    static func request(req: HttpRequestService) -> Task<Float, (NSURLRequest, NSHTTPURLResponse?, AnyObject?, String?, NSError?), NSError> {
+        let task1 = Task<Float, (NSURLRequest, NSHTTPURLResponse?, AnyObject?, NSError?), NSError> { progress, fulfill, reject, configure in
+            req.responseJSON { (request, response, optionalJson, error) in
+                fulfill(request, response, optionalJson, error)
+                return
+            }
+            return
+        }
+        let task2 = Task<Float, (NSURLRequest, NSHTTPURLResponse?, AnyObject?, NSError?), NSError> { progress, fulfill, reject, configure in
+            req.responseString{ (request, response, optionalString, error) in
+                fulfill(request, response, optionalString, error)
+                return
+            }
+            return
+        }
+        return Task.all([task1, task2]).success { tasks -> Task<Float, (NSURLRequest, NSHTTPURLResponse?, AnyObject?, String?, NSError?), NSError> in
+            let task = Task<Float, (NSURLRequest, NSHTTPURLResponse?, AnyObject?, String?, NSError?), NSError> { progress, fulfill, reject, configure in
+                fulfill(tasks[0].0, tasks[0].1, tasks[0].2, (tasks[1].2 as? String?)!, tasks[0].3)
+                return
+            }
+            return task
+        }
+        
     }
     
     static func good(optionalJson: AnyObject?) -> JSON? {

@@ -41,7 +41,7 @@ class User: RLMObject {
         let urlReq = UserApi().register(email, password: password, password_confirmation: password);
         let req = http.request(urlReq)
         
-        req.responseJSON { (request, response, optionalJson, error) in
+        Api.request(req).success { (request, response, optionalJson, optionalString, error) -> Void in
             if let data = Api.good(optionalJson)  {
                 if let success = data["success"].bool where success == true {
                     let messages = [(String,String)]()
@@ -54,9 +54,14 @@ class User: RLMObject {
                     fulfill(result)
                 }
             } else {
-                reject(NSError(domain: Api.SERVER_ERROR.0, code: Api.SERVER_ERROR.1,
+                let domain: String = optionalString ?? error?.domain ?? Api.SERVER_ERROR.0
+                let code: Int = error?.code ?? Api.SERVER_ERROR.1
+         
+                reject(NSError(domain: domain, code: code,
                     userInfo: ["file": __FILE__, "line": __LINE__]))
             }
+            
+            return
         }
     }
 }
