@@ -1,3 +1,6 @@
+[![travis build](https://api.travis-ci.org/joseph-montanez/starter-app-native-ios.png)](https://travis-ci.org/joseph-montanez/starter-app-native-ios) 
+[![Code Climate](https://codeclimate.com/github/joseph-montanez/starter-app-native-ios/badges/gpa.svg)](https://codeclimate.com/github/joseph-montanez/starter-app-native-ios)
+
 # Starter App
 
 A basic intro, login, facebook login, registration, and chat system. Currently this project only supports iOS 8 and is a Swift project.
